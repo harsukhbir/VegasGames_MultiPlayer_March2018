@@ -1,0 +1,145 @@
+<div data-role="page" id="tournament" data-theme="a" data-title="VegasPoker" data-url="tournament" onclick="return false;" class="data-role-page">
+	<div data-role="content"  id="tournament-page-content" class="page-content">
+
+        <div class="page-header">
+			<div data-bind="touch: menu.back" class="back-button lobby-back-button row-left-block">
+				<div class="header-block-back-button table">
+					<div class="table-cell header-block-back-cell">
+						<div data-bind="text: locale()._f1._51"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="page-header-column ">
+                <div class="header-block-title">
+                    <div class="header-block-title-text" data-bind="text: tournament.details().name"></div>
+                </div>
+            </div>
+            <div class="header-refresh-container">
+                <div class="header-refresh-button scroll-refresh-button"></div>
+            </div>
+
+        </div>
+
+        <div class='menu-toolbar tournament-toolbar'>
+            <div class="toolbar-bars left-bar"></div>
+            <div class="toolbar-bars left-button-scroll-bar"></div>
+            <div class="toolbar-bars top-button-scroll-bar">
+                <div class="custom-bar-block">
+                    <div class="toolbar-bars custom-bar clickable button-info open-bar" data-bind="click: menu.openPage.bind($data, {page: 'tournament'})">
+                        <div class="sub-custom-bar">
+                            <div class="toolbar-bars sub-bars left-custom-bar"></div>
+                            <div class="toolbar-bars sub-bars top-custom-bar">
+                                <div data-bind="text: locale()._c6._09"></div>
+                            </div>
+                            <div class="toolbar-bars sub-bars right-custom-bar"></div>
+                        </div>
+                    </div>
+                    <div class="toolbar-bars custom-bar clickable button-tables" data-bind="click: menu.openPage.bind($data, {page: 'tournament-tables'})">
+                        <div class="sub-custom-bar">
+                            <div class="toolbar-bars sub-bars left-custom-bar"></div>
+                            <div class="toolbar-bars sub-bars top-custom-bar">
+                                <div data-bind="text: locale()._c6._O2"></div>
+                            </div>
+                            <div class="toolbar-bars sub-bars right-custom-bar"></div>
+                        </div>
+                    </div>
+
+                    <div class="toolbar-bars custom-bar clickable button-players" data-bind="click: menu.openPage.bind($data, {page: 'tournament-players'})">
+                        <div class="sub-custom-bar">
+                            <div class="toolbar-bars sub-bars left-custom-bar"></div>
+                            <div class="toolbar-bars sub-bars top-custom-bar">
+                                <div  data-bind="text: locale()._c6._f0"></div>
+                            </div>
+                            <div class="toolbar-bars sub-bars right-custom-bar"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="toolbar-bars right-button-scroll-bar"></div>
+            <div class="toolbar-bars right-bar"></div>
+        </div>
+
+        <div class="tournament-info-scroll-wrapper scroll-wrapper-adaptive">
+            <div class="scroll-wrapper-child">
+
+                    <div class="tournament-info-menu blue-table">
+
+                        <div class="filter-menu-item tournament-info-menu-item blue-table-row"  data-bind="touch: menu.openPage.bind($data, 'tournament-info-stakes')">
+                            <div class="tournament-info-column1 blue-table-column">
+                                <span  data-bind="text: locale()._c6._N3"></span>
+	                            <span>:</span>
+                                <span  data-bind="text: tournament.getTournamentType()"></span>
+                            </div>
+                            <div class="tournament-info-column2 blue-table-column">
+                                <span  data-bind="text: locale()._c6._P5"></span>
+	                            <span>:</span>
+                                <span  data-bind="text: tournament.buyIn"></span>
+                            </div>
+                        </div>
+
+                        <div class="filter-menu-item tournament-info-menu-item blue-table-row"  data-bind="touch: menu.openPage.bind($data, 'tournament-info-stakes')">
+                            <div class="tournament-info-column1 blue-table-column">
+                                <span  data-bind="text: locale()._c6._60"></span>
+	                            <span>:</span>
+                                <span  data-bind="text: tournament.getGameType()"></span>
+                            </div>
+                            <div class="tournament-info-column2 blue-table-column">
+                                <span  data-bind="text: locale()._c6._a3"></span>
+	                            <span>:</span>
+                                <span  data-bind="text: tournament.entryFee"></span>
+                            </div>
+                        </div>
+
+                        <div class="filter-menu-item tournament-info-menu-item blue-table-row"  data-bind="touch: menu.openPage.bind($data, 'tournament-info-stakes')">
+                            <div class="tournament-info-column1 blue-table-column">
+                                <span  data-bind="text: locale()._c6._F0"></span>
+                                <span>:</span>
+                                <span  data-bind="text: tournament.getState()"></span>
+                            </div>
+                            <div class="tournament-info-column2 blue-table-column">
+                                <span  data-bind="text: locale()._c6._I3"></span>
+	                            <span>:</span>
+                                <span  data-bind="text: tournament.startDate"></span>
+                            </div>
+                        </div>
+
+                        <div class="filter-menu-item tournament-info-menu-item blue-table-row"  data-bind="touch: menu.openPage.bind($data, 'tournament-info-stakes')">
+                            <div class="tournament-info-column1 blue-table-column">
+                                <span  data-bind="text: locale()._c6._U8"></span>
+	                            <span>:</span>
+                                <span ><span data-bind="text: tournament.details().numberPlayers"></span>/<span data-bind="text: tournament.details().maxPlayers"></span></span>
+                            </div>
+                            <div class="tournament-info-column2 blue-table-column">
+                                <span  data-bind="text: locale()._c6._C2"></span>
+	                            <span>:</span>
+                                <span  data-bind="text: tournament.endDate"></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                            <div data-bind="visible: tournament.isLateRegistered">
+                                <span  data-bind="text: locale()._c6._e2"></span>
+	                            <span>:</span>
+                                <span  data-bind="text: tournament.lateRegistrationTime"></span>
+                            </div>
+
+                    <button id="tournament-register-button" data-role="none" type="button" class="green-button tournament-info-green-button" data-bind="visible: tournament.registerButton, click: tournament.registerTournament, text: locale()._c6._t1"></button>
+                    <button id="tournament-unregister-button" data-role="none" type="button" class="green-button tournament-info-green-button" data-bind="visible: tournament.unregisterButton, click: tournament.unregisterTournament, text: locale()._c6._97"></button>
+                    <button id="tournament-play-button" data-role="none" type="button" class="green-button tournament-info-green-button" data-bind="visible: true, click: tournament.playTournament, text: locale()._c6._A"></button>
+
+
+
+            </div>
+
+        </div>
+
+	</div>
+
+	{{html _footer}}
+	{{html _leaderboard}}
+	{{html _blockad}}
+</div>

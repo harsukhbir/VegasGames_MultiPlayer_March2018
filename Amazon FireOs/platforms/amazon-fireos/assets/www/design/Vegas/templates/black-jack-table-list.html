@@ -1,0 +1,43 @@
+<!-- ko if: menu.isInternalSearchVisible -->
+<style>
+	.t-scroll-wrapper {
+		height: 63.1% !important;
+	}
+</style>
+<!-- /ko -->
+
+<div id="" class="t-table-row-search t-table-row-tournament-search" data-bind="visible: menu.isInternalSearchVisible">
+	<div class="table-search">
+		<input type="text" value="" class="input-table-search" data-bind="value: lobby.tables.searchString, valueUpdate: 'afterkeydown', event: { keyup: lobby.tables.search}, attr: {placeholder: locale()._y8._p9}" />
+	</div>
+</div>
+
+<div class="t-table-row-tournament-list-first t-table-row-first t-table-row"  >
+	<div class="t-table-tournament-list-column1 t-table-column"><div data-bind="text: locale()._y8._t3"><!--Table name --></div></div>
+	<div class="t-table-tournament-list-column2 t-table-column"><div data-bind="text: locale()._y8._o8"><!--Min/Max bet --></div></div>
+	<div class="t-table-tournament-list-column3 t-table-column"><div data-bind="text: locale()._y8._36"><!--Decks in shoe --></div></div>
+	<div class="t-table-tournament-list-column4 t-table-column"><div data-bind="text: locale()._y8._s"><!--Payot --></div></div>
+	<div class="t-table-tournament-list-column5 t-table-column"><div data-bind="text: locale()._y8._q9"><!--Players --></div></div>
+	<div class="t-table-tournament-list-column-scroll t-table-column"><div data-bind=""><!--Scroll --></div></div>
+</div>
+
+<div class="t-table-row-tournament-list t-table-row t-table-tournament-list-column-messages" data-bind="visible: !lobby.tables.hasElements()">
+	<div class="t-table-column" data-bind="text: locale()._y8._78"></div>
+</div>
+
+<div id="scroll-wrapper" class="t-scroll-wrapper scroll-wrapper-adaptive" data-bind="visible: lobby.tables.hasElements()">
+	<div id="scroll-wrapper-child" class="scroll-wrapper-child">
+
+		<!-- ko foreach: (lobby.tables.searchString())? lobby.tables.searchedElements : lobby.tables.elements -->
+		<div class="t-table-row-tournament-list t-table-row clickable" data-bind="click: $parent.lobby.openTable">
+			<div class="t-table-tournament-list-column1 t-table-column"><div data-bind="text: name"><!-- name --></div></div>
+			<div class="t-table-tournament-list-column2 t-table-column"><div data-bind="text: $parent.lobbyTablesFilters.getBets($data)"><!--Stakes --></div></div>
+			<div class="t-table-tournament-list-column3 t-table-column"><div data-bind="text: $parent.lobbyTablesFilters.getDecksInShoe($data)"><!--Pot --></div></div>
+			<div class="t-table-tournament-list-column4 t-table-column"><div data-bind="text: $parent.lobbyTablesFilters.getPayout($data)"><!--BuyIn --></div></div>
+			<div class="t-table-tournament-list-column5 t-table-column t-table-players-column" data-bind="text: $parent.lobbyTablesFilters.getNumberPlayers($data)"><!-- Players --></div>
+			<div class="t-table-tournament-list-column-scroll t-table-column"><div data-bind=""><!--Scroll --></div></div>
+		</div>
+		<!-- /ko -->
+	</div>
+	<div class="scroller-bar-wrapper"><div class="scroller-bar-scroller"></div></div>
+</div>

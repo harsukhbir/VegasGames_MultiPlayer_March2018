@@ -1,0 +1,26 @@
+<div data-role="page" id="registration" data-theme="a" data-title="VegasPoker" data-url="registration" class="data-role-page">
+	<div id="registration-page-content" class="page-content" data-role="content">
+		{{html _loginMenu}}
+		<div class="scroll-wrapper-adaptive scroll-wrapper-login">
+			<div id="formScrollId" class="scroll-wrapper-child" data-bind="click:test.test2, css:{'keyboardpopup': test.newclass() == true}">
+				<form id="form-registration" data-bind="submit: account.register.bind($data.account), disable: account.isRegistering">
+					<ul>
+						<li id="registration-input-container" data-bind="click:test.test3">
+						</li>
+						<li class='sign-up-error-messages'>
+							<span id="registration-error-message" class="error-message"></span>
+						</li>
+						<li class="registration-last-li">
+							<div class='button-block'>
+								<button data-bind="text: locale()._P2._J7" type="submit" class="green-button padding-button sign-up-green-button" data-role="none">
+									<!--Sign up-->
+								</button>
+							</div>
+						</li>
+					</ul>
+				</form>
+			</div>
+		</div>
+	</div>
+	{{html _loginFooter}} {{html _blockad}}
+</div>

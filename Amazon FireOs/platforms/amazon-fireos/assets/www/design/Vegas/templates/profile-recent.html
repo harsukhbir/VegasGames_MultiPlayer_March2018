@@ -1,0 +1,49 @@
+<div data-role="page" id="profile-recent" data-theme="a" data-title="VegasPoker" data-url="profile-recent"
+     onclick="return false;" class="data-role-page">
+	<div id="profile-recent-page-content" data-role="content" class="page-content">
+
+		{{html _profileMenu}}
+
+		<div class="profile-recent-hand"></div>
+
+
+		<div class="profile-recent-gifts-background-text"></div>
+
+		<div class="profile-recent-container-gifts">
+			<!-- ko foreach: publicProfile.recentGifts() -->
+
+			<div class="profile-recent-item-content">
+				<!-- ko if: giftSrc -->
+				<div class="profile-recent-item-content-table-cell"
+				     data-bind="style: { backgroundImage: 'url(' + giftSrc + ')' }">
+
+				</div>
+				<!-- /ko -->
+			</div>
+
+			<!-- /ko -->
+		</div>
+
+		<div class="profile-recent-achievements-background-text"></div>
+
+		<div class="profile-recent-container-achievements">
+			<!-- ko foreach: publicProfile.recentAchievements() -->
+
+				<div class="profile-recent-item-content">
+					<!-- ko  if: achievementSrc -->
+					<div class="profile-recent-item-content-table-cell"
+					     data-bind="style: { backgroundImage: 'url('+achievementSrc+')' }">
+					</div>
+					<!-- /ko -->
+				</div>
+
+			<!-- /ko -->
+		</div>
+		<br class="clear">
+
+
+	</div>
+	{{html _footer}}
+	{{html _leaderboard}}
+	{{html _blockad}}
+</div>

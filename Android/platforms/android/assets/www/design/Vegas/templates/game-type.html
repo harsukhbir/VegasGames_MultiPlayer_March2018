@@ -1,0 +1,46 @@
+<div data-role="page" id="game-type" data-theme="a" data-title="VegasPoker" data-url="game-type" onclick="return false;" class="data-role-page">
+	<div id="game-type-page-content" data-role="content" class="page-content">
+
+		<div class="game-type-page-label">
+		</div>
+		<div class="game-type-buttons-table">
+			<div class="game-type-button-wrapper">
+				<button class="game-type-button game-type-button-holdem" data-bind="click: lobby.setGameType.bind($data, 'holdem')"></button>
+			</div>
+			<div class="game-type-button-wrapper">
+				<button class="game-type-button game-type-button-stud" data-bind="click: lobby.setGameType.bind($data, 'stud')"></button>
+			</div>
+			<div class="game-type-button-wrapper">
+				<button class="game-type-button game-type-button-stud-hl"
+				        data-bind="click: lobby.setGameType.bind($data, 'stud-hl')"></button>
+			</div>
+			<div class="game-type-button-wrapper">
+				<button class="game-type-button game-type-button-omaha" data-bind="click: lobby.setGameType.bind($data, 'omaha')"></button>
+			</div>
+			<div class="game-type-button-wrapper">
+				<button class="game-type-button game-type-button-omaha-hl"
+				        data-bind="click: lobby.setGameType.bind($data, 'omaha-hl')"></button>
+			</div>
+			<div class="game-type-button-wrapper">
+				<button class="game-type-button game-type-button-blackjack"
+						data-bind="click: lobby.setGameType.bind($data, 'blackjack')"></button>
+			</div>
+			<div class="game-type-button-wrapper">
+				<button class="game-type-button game-type-button-baccarat"
+						data-bind="click: lobby.setGameType.bind($data, 'baccarat')"></button>
+			</div>
+			<div class="game-type-button-wrapper">
+				<button class="game-type-button game-type-button-paigow"
+				        data-bind="click: lobby.setGameType.bind($data, 'paigow')"></button>
+			</div>
+
+			<div class="game-type-button-wrapper">
+				<button class="game-type-button game-type-button-craps"
+				        data-bind="click: lobby.setGameType.bind($data, 'craps')"></button>
+			</div>
+		</div>
+		<div class="game-type-page-logo"></div>
+		<div class="game-type-page-facebook" data-bind="touch: menu.likePage"></div>
+
+	</div>
+</div>

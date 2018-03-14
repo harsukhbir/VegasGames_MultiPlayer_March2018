@@ -1,0 +1,61 @@
+<div id="options-settings" class="custom-options-dialog ">
+	<div class="options-dialog-popup options-dialog-settings ">
+		<div class="external-dialog-header-close-button">
+			<div class="external-dialog-close-image" data-bind="touch: options.closeSettingsDialog"></div>
+		</div>
+		<div class="options-dialog-header">
+			<div class="options-dialog-header-text options-dialog-header-title" data-bind="text: locale()._66._d3">
+			</div>
+		</div>
+
+		<!--ko if: typeof playerOptions !== 'undefined'-->
+
+		<div class="options-dialog-item" >
+			<div class="ui-checkbox">
+				<input type="checkbox" id="sound-checkbox" data-bind="checked: playerOptions.isSoundEnabled(), click: playerOptions.toggleSound">
+				<label for="sound-checkbox" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="checkbox-off" data-theme="a" class="ui-btn ui-btn-corner-all ui-btn-icon-left ui-btn-up-a" data-bind="css: {'ui-checkbox-on': playerOptions.isSoundEnabled, 'ui-checkbox-off': !playerOptions.isSoundEnabled()}">
+							<span class="ui-btn-inner ui-btn-corner-all">
+								<span class="ui-btn-text">
+									<span data-bind="text: locale()._66._01"></span>
+								</span>
+								<span class="ui-icon ui-icon-shadow"  data-bind="css: {'ui-icon-checkbox-on': playerOptions.isSoundEnabled, 'ui-icon-checkbox-off': !playerOptions.isSoundEnabled()}">&nbsp;</span>
+							</span>
+				</label>
+			</div>
+		</div>
+		<div class="options-dialog-item" >
+			<div class="ui-checkbox">
+				<input type="checkbox" id="auto-blind-checkbox" data-bind="checked: playerOptions.isGlobalAutoBlind(), click: playerOptions.toggleAutoBlind">
+				<label for="auto-blind-checkbox" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="checkbox-off" data-theme="a" class="ui-btn ui-btn-corner-all ui-btn-icon-left ui-btn-up-a" data-bind="css: {'ui-checkbox-on': playerOptions.isGlobalAutoBlind, 'ui-checkbox-off': !playerOptions.isGlobalAutoBlind()}">
+								<span class="ui-btn-inner ui-btn-corner-all">
+									<span class="ui-btn-text">
+										<span data-bind="text: locale()._66._v6"></span>
+									</span>
+									<span class="ui-icon ui-icon-shadow"  data-bind="css: {'ui-icon-checkbox-on': playerOptions.isGlobalAutoBlind, 'ui-icon-checkbox-off': !playerOptions.isGlobalAutoBlind()}">&nbsp;</span>
+								</span>
+				</label>
+			</div>
+		</div>
+		<div class="options-dialog-item" >
+			<div class="ui-checkbox">
+				<input type="checkbox" id="auto-muck-checkbox" data-bind="checked: playerOptions.isGlobalAutoMuck(), click: playerOptions.toggleAutoMuck">
+				<label for="auto-muck-checkbox" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="checkbox-off" data-theme="a" class="ui-btn ui-btn-corner-all ui-btn-icon-left ui-btn-up-a" data-bind="css: {'ui-checkbox-on': playerOptions.isGlobalAutoMuck, 'ui-checkbox-off': !playerOptions.isGlobalAutoMuck()}">
+								<span class="ui-btn-inner ui-btn-corner-all">
+									<span class="ui-btn-text">
+										<span data-bind="text: locale()._66._p0"></span>
+									</span>
+									<span class="ui-icon ui-icon-shadow" data-bind="css: {'ui-icon-checkbox-on': playerOptions.isGlobalAutoMuck, 'ui-icon-checkbox-off': !playerOptions.isGlobalAutoMuck()}">&nbsp;</span>
+								</span>
+				</label>
+			</div>
+		</div>
+
+		<!--/ko-->
+
+		<div class="option-back-button-row">
+			<button data-role="none" class="green-button green-button-back-to-options" data-bind="text: locale()._66._38, click: options.backFromSettingsDialog">
+			</button>
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,148 @@
+<div data-role="page" id="profile-overview" data-theme="a" data-title="VegasPoker" data-url="profile-overview" onclick="return false;"
+    class="data-role-page">
+    <div id="profile-page-content" data-role="content" class="page-content">
+        {{html _profileMenu}}
+        <div class="profile-overview-content row-left-block">
+            <div class="player-avatar-block row-left-block">
+                <div class="adaptive slider-wrapper-overview">
+                    <div class="profile-change-avatar-container">
+
+                        <div class="row-left-block avatar-arrow-left-field">
+                            <div class="avatar-scroll-button" data-bind="touch: socialAvatars.availableAvatarsList.reducePage.bind(socialAvatars.availableAvatarsList)">
+                                <div class="avatar-scroll-button-table-cell">
+                                    <div class="left-avatar-scroll-unactive arrow-avatar-scroll" data-bind="css: {'left-avatar-scroll-active': socialAvatars.availableAvatarsList.pages() > 1}">
+                                        &nbsp;
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row-left-block avatar-arrow-main-field">
+                            <div class="profile-change-avatar-image-container">
+                                <div class="profile-change-avatar-image-content" data-bind="foreach: socialAvatars.availableAvatarsList.elements">
+                                    <div class="profile-overview-avatar-image-image" data-bind="style: { backgroundImage: 'url(' + $data.resource.large + ')' }">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row-left-block avatar-arrow-right-field">
+                            <div class="avatar-scroll-button" data-bind="touch: socialAvatars.availableAvatarsList.hasMorePages() && socialAvatars.availableAvatarsList.growPage.bind(socialAvatars.availableAvatarsList)">
+                                <div class="avatar-scroll-button-table-cell">
+                                    <div class="right-avatar-scroll-unactive arrow-avatar-scroll" data-bind="css: {'right-avatar-scroll-active': socialAvatars.availableAvatarsList.hasMorePages}">
+                                        &nbsp;
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br class="clear">
+
+                    </div>
+
+                    <div id="profile-change-avatar-apply-button" data-role="none" data-bind="visible: (socialAvatars.availableAvatarsList.length() > 0), touch: socialAvatars.confirmSelectedAvatar.bind(socialAvatars, $data), disable: avatars.isWaiting">
+                        <!--Confirm-->
+                        <div class="profile-change-avatar-apply-button-text" data-bind="text: locale()._e9._91"></div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="player-info-block row-left-block">
+                <div class="row-player-data background-player-data">
+                    <div class="label-player-data row-left-block">
+                        <div data-bind="text: locale()._u2._h9"></div>
+                    </div>
+                    <div class="value-player-data row-right-block">
+                        <div data-bind="text: publicProfile.level"></div>
+                    </div>
+                    <br class="clear">
+                </div>
+                <div class="row-player-data even">
+                    <div class="label-player-data-down-left row-left-block">
+                        <div data-bind="text: locale()._u2._O5"></div>
+                    </div>
+                    <div class="value-player-data row-right-block">
+                        <div data-bind="text: publicProfile.details().highestChipLevel"></div>
+                    </div>
+                    <br class="clear">
+                </div>
+                <div class="row-player-data background-player-data">
+                    <div class="label-player-data row-left-block">
+                        <div data-bind="text: locale()._u2._C3"></div>
+                    </div>
+                    <div class="value-player-data row-right-block">
+                        <!-- <div data-bind="text: userCashChips"> </div> -->
+                        <!-- <div id="userCashChips"></div> -->
+                        <!-- <div data-bind="text: profile.MeplayCash()"></div> -->
+                        <div data-bind="text: publicProfile.details().balance"></div>
+                    </div>
+                    <br class="clear">
+                </div>
+                <div class="row-player-data even">
+                    <div class="label-player-data-down-left row-left-block">
+                        <div data-bind="text: locale()._u2._l"></div>
+                    </div>
+                    <div class="value-player-data row-right-block">
+                        <div class="publicProfile-buddiesCount" data-bind="text: publicProfile.buddiesCount"></div>
+                    </div>
+                    <br class="clear">
+                </div>
+                <div class="row-player-data">
+                    <div class="title-player-data">
+                        <div data-bind="text: locale()._u2._o"></div>
+                    </div>
+                </div>
+                <div class="row-player-data background-player-data">
+                    <div class="label-player-data row-left-block">
+                        <div data-bind="text: locale()._w1._11"></div>
+                    </div>
+                    <div class="value-player-data row-right-block">
+                        <div data-bind="text: publicProfile.registerDate"></div>
+                    </div>
+                    <br class="clear">
+                </div>
+                <div class="row-player-data even">
+                    <div class="label-player-data-down-left row-left-block">
+                        <div data-bind="text: locale()._w1._T2"></div>
+                    </div>
+                    <div class="value-player-data row-right-block">
+                        <div data-bind="text: publicProfile.network"></div>
+                    </div>
+                    <br class="clear">
+                </div>
+                <div class="row-player-data background-player-data">
+                    <div class="label-player-data row-left-block">
+                        <div data-bind="text: locale()._w1._Z7"></div>
+                    </div>
+                    <div class="value-player-data row-right-block">
+                        <div data-bind="text: publicProfile.biggestPotWon"></div>
+                    </div>
+                    <br class="clear">
+                </div>
+                <div class="row-player-data even">
+                    <div class="label-player-data-down-left row-left-block">
+                        <div data-bind="text: locale()._w1._h3"></div>
+                    </div>
+                    <div class="value-player-data row-right-block">
+                        <div class='profile-best-hand' data-bind="html: publicProfile.bestHand"></div>
+                    </div>
+                    <br class="clear">
+                </div>
+                <div class="row-player-data background-player-data">
+                    <div class="label-player-data row-left-block">
+                        <div data-bind="text: locale()._w1._k3"></div>
+                    </div>
+                    <div class="value-player-data row-right-block">
+                        <div data-bind="text: publicProfile.handsWon"></div>
+                    </div>
+                    <br class="clear">
+                </div>
+
+            </div>
+            <br class="clear" />
+        </div>
+
+    </div>
+    {{html _footer}} {{html _leaderboard}} {{html _blockad}}
+</div>

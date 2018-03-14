@@ -1,0 +1,81 @@
+<div data-role="page" id="home-active-client-tables" data-theme="a" data-title="VegasPoker" data-url="home-active-client-tables" onclick="return false;" class="data-role-page">
+	<div id="home-active-client-tables-content" class="page-content" data-role="content">
+
+
+		<div class="page-header">
+			<div class="table-cell header-block-back">
+
+				<div data-bind="touch: menu.back" class="back-button lobby-back-button row-left-block">
+					<div class="header-block-back-button table">
+						<div class="table-cell header-block-back-cell">
+							<div data-bind="text: locale()._f1._51"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="table-cell page-header-column ">
+
+                <div class="header-block-title">
+                    <div class="header-block-title-text" data-bind="text: locale()._J6._Y5"></div>
+                </div>
+            </div>
+            <div class="header-refresh-container">
+                <div class="header-refresh-button scroll-refresh-button"></div>
+            </div>
+            <button class="refresh-button lobby-refresh-button scroll-refresh-button" data-role="none" type="button" data-bind=""></button>
+
+        </div>
+
+        <div class="t-table-tournament-list t-table">
+
+
+            <div class="t-table-row-tournament-list-first t-table-row-first t-table-row"  >
+                <div class="t-table-tournament-list-column1 t-table-column"><div data-bind="text: locale()._y8._t3"><!--Table name --></div></div>
+                <div class="t-table-tournament-list-column2 t-table-column"><div data-bind="text: locale()._y8._m9"><!--Stakes --></div></div>
+                <div class="t-table-tournament-list-column3 t-table-column"><div data-bind="text: locale()._y8._68"><!--Pot --></div></div>
+                <div class="t-table-tournament-list-column4 t-table-column"><div data-bind="text: locale()._y8._74"><!--BuyIn --></div></div>
+                <div class="t-table-tournament-list-column5 t-table-column"><div data-bind="text: locale()._y8._q9"><!--Players --></div></div>
+                <div class="t-table-tournament-list-column-scroll t-table-column"><div data-bind=""><!--Scroll --></div></div>
+            </div>
+
+            <div class="t-table-row-tournament-list t-table-row t-table-tournament-list-column-messages" data-bind="visible: !lobby.activeClientTables.hasElements()">
+                <div class="t-table-column" data-bind="text: locale()._y8._78"></div>
+            </div>
+
+
+
+            <div id="scroll-wrapper" class="t-scroll-wrapper scroll-wrapper-adaptive" data-bind="visible: lobby.activeClientTables.hasElements">
+                <div id="scroll-wrapper-child" class="scroll-wrapper-child">
+
+                        <!-- ko foreach: lobby.activeClientTables.elements -->
+                        <div class="t-table-row-tournament-list t-table-row clickable" data-bind="click: $parent.lobby.openTable">
+                            <div class="t-table-tournament-list-column1 t-table-column"><div data-bind="text: name"><!-- name --></div></div>
+                            <div class="t-table-tournament-list-column2 t-table-column"><div data-bind="text: $parent.lobbyTablesFilters.getStakes($data)"><!--Stakes --></div></div>
+                            <div class="t-table-tournament-list-column3 t-table-column"><div data-bind="text: $parent.lobbyTablesFilters.getPotType($data)"><!--Pot --></div></div>
+                            <div class="t-table-tournament-list-column4 t-table-column"><div data-bind="text: $parent.lobbyTablesFilters.getBuyIn($data)"><!--BuyIn --></div></div>
+                            <div class="t-table-tournament-list-column5 t-table-column t-table-players-column" data-bind="text: $parent.lobbyTablesFilters.getNumberPlayers($data)"><!-- Players --></div>
+                            <div class="t-table-tournament-list-column-scroll t-table-column"><div data-bind=""><!--Scroll --></div></div>
+                        </div>
+                        <!-- /ko -->
+                        <div class="t-table-row-tournament-list t-table-row clickable listview listview-empty" data-bind="visible: lobby.activeClientTables.hasMorePages, click: lobby.activeClientTables.growPage.bind(lobby.activeClientTables)">
+                            <div data-bind="text: locale()._z5._M6"></div>
+                        </div>
+                </div>
+				<div class="scroller-bar-wrapper"><div class="scroller-bar-scroller"></div></div>
+            </div>
+
+        </div>
+
+        <!--
+        								<th class="home-listview " data-bind="text: locale()._J6._57"><!--Game type--</th>
+									<div class="game-type" data-bind="text: $parent.lobbyTablesFilters.getGameType($data)"></div>
+        -->
+
+	</div>
+
+	{{html _footer}}
+	{{html _leaderboard}}
+	{{html _blockad}}
+</div>

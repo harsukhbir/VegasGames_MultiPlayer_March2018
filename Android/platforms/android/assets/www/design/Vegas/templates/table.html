@@ -1,0 +1,673 @@
+<div data-role="page" id="table" data-theme="a" data-title="VegasPoker" data-url="table" onclick="return false;" class="data-role-page">
+	<div id="tables-page-content" class="page-content" data-role="content" data-bind="style: { backgroundImage: (typeof changeableGraphics !== 'undefined') ? changeableGraphics.background: 'url(design/Vegas/images/table-screen-background.jpg)'}">
+
+
+		<div class="open-settings-button table-header-menu-button clickable" data-bind="enable: (typeof options != 'undefined'), touch: (typeof options != 'undefined')? options.openOptionsDialog : null">
+			<!-- table-setting-button -->
+		</div>
+		<div class="open-gifts-button table-header-menu-button clickable" data-bind="enable: (typeof gifts != 'undefined'), touch: (typeof gifts != 'undefined')? gifts.openFromTable : null">
+			<!-- Gifts -->
+		</div>
+		<div class="add-chips-button table-header-menu-button clickable" data-bind="touch: inAppPayment.openBuyChips">
+			<!-- Chips -->
+		</div>
+		<div class="profile-inventory-button table-header-menu-button clickable" data-bind="touch: menu.openPage.bind($data, 'profile-inventory')">
+			<!-- Inventory -->
+		</div>
+		<div class="close-table-button table-header-menu-button clickable" data-bind="visible: tablesSnap.openedTables().length, css: {'with-add-button': tablesSnap.canAdd}, click: tablesSnap.close">
+			<div class="table table-button-text close-table-button-text">
+				<div class="table-cell" data-bind="text: locale()._l9._z3">
+				</div>
+			</div>
+		</div>
+		<!-- ko if: tablesSnap.canAdd -->
+			<div class="add-table-button table-header-menu-button clickable" data-bind="click: tablesSnap.add">
+				<div class="table add-table-button-text table-button-text">
+					<div class="table-cell" data-bind="text: locale()._l9._j4">
+					</div>
+				</div>
+			</div>
+		<!-- /ko -->
+		<div class="game-one-table-button  table-header-menu-button " data-bind="css: {'active-table-button': tablesSnap.openedTables().length && !tablesSnap.firstTableIsHidden(), 'inactive-table-button': tablesSnap.firstTableIsHidden() || !tablesSnap.openedTables().length}, click: tablesSnap.goToFirstTable">
+			<div class="table game-one-table-button-text game-table-button-text">
+				<div class="table-cell" data-bind="text: locale()._l9._14">
+					<!-- GAME 1 -->
+				</div>
+			</div>
+		</div>
+		<div class="inactive-table-info table-header-menu-button">
+			<div class="table inactive-table-info-container">
+				<div class="table-header-menu-button hidden-table-cards-container">
+					<div class="hidden-table-cards" data-bind="html: (tablesSnap.getFirstHiddenTable() && lobby.getGameType() == 72 ) ? tablesSnap.getFirstHiddenTable().getCards() : ''">
+						<!--Cards-->
+					</div>
+				</div>
+				<div class="table-header-menu-button  hidden-table-stakes-container">
+					<div class="table" style="width: 100%">
+						<div style="display: table-row">
+							<div class="table-header-menu-button hidden-table-stake" data-bind="text: (tablesSnap.getFirstHiddenTable()) ? tablesSnap.getFirstHiddenTable().getFormatedBaseStake(0) : '&nbsp;'">
+								<!--Low stakes-->
+							</div>
+						</div>
+						<div style="display: table-row">
+							<div class="table-header-menu-button hidden-table-stake" data-bind="text: (tablesSnap.getFirstHiddenTable()) ? tablesSnap.getFirstHiddenTable().getFormatedBaseStake(1) : '&nbsp;'">
+								<!--High stakes-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="game-two-table-button table-header-menu-button " data-bind="css: {'active-table-button': tablesSnap.hasHiddenTable() && !tablesSnap.secondTableIsHidden(), 'inactive-table-button': tablesSnap.secondTableIsHidden() || !tablesSnap.hasHiddenTable()}, click: tablesSnap.goToSecondTable">
+			<div class="table game-two-table-button-text game-table-button-text">
+				<div class="table-cell" data-bind="text: locale()._l9._n3">
+					<!-- GAME 2 -->
+				</div>
+			</div>
+		</div>
+		<!-- ko if: tablesSnap.hasStandUpButton -->
+			<div class="blue-button clickable stand-up-blue-button  table-header-menu-button" data-role="none" data-bind="click: tablesSnap.standUp">
+				<div class="stand-up-blue-button-text" data-bind="text: locale()._l9._R1">
+					<!-- STAND_UP -->
+				</div>
+			</div>
+		<!-- /ko -->
+		<div class="clickable blue-button to-lobby-blue-button  table-header-menu-button" data-role="none"  data-bind="click: lobby.closeCurrentTables">
+			<div class="to-lobby-blue-button-text" data-bind="text: locale()._l9._p2">
+				<!--Lobby-->
+			</div>
+		</div>
+
+		<!-- only for stud -->
+		<div class="table-header">
+
+		</div>
+
+		<!-- only for stud -->
+		<div class="vegas-table-menu-popup" data-bind="visible: tablesSnap.tableMenu.isShowTableMenu">
+			<div class="vegas-table-menu-item">
+				<div class="vegas-table-menu-item-content" data-bind="text: locale()._l9._39">
+				</div>
+			</div>
+			<div class="vegas-table-menu-item" data-bind="touch: tablesSnap.tableMenu.openProfileInventoryPage">
+				<div class="vegas-table-menu-item-content" data-bind="text: locale()._l9._g4">
+				</div>
+			</div>
+			<div class="vegas-table-menu-item" data-bind="touch: tablesSnap.tableMenu.openLobbyPage">
+				<div class="vegas-table-menu-item-content" data-bind="text: locale()._l9._l1">
+				</div>
+			</div>
+			<div class="vegas-table-menu-item vegas-table-menu-standup" data-bind="touch: tablesSnap.tableMenu.standUp,
+				css: {disabled: !tablesSnap.hasStandUpButton()}">
+				<div class="vegas-table-menu-item-content" data-bind="text: locale()._l9._42">
+				</div>
+			</div>
+			<div class="vegas-table-menu-item" data-bind="touch: tablesSnap.tableMenu.openOptionsDialog">
+				<div class="vegas-table-menu-item-content" data-bind="text: locale()._l9._g0">
+				</div>
+			</div>
+		</div>
+
+		<!-- only for stud -->
+
+		<script type="text/html" id="table-template">
+				<div class="game-table-parent" data-bind="visible: $parent.tablesSnap.activeTable() === $index()" >
+					<div data-bind="attr: {id: 'table-' + id}" class="game-table">
+						<div class="game-area">
+							<!-- ko template: { name: '_tableTimer-tmpl' } -->
+							<!-- /ko -->
+							<canvas class="static-canvas">
+							</canvas>
+							<canvas class="extra-canvas">
+							</canvas>
+							<canvas class="middle-canvas">
+							</canvas>
+							<canvas class="timer-canvas">
+							</canvas>
+							<canvas class="game-canvas">
+								<span data-bind="text: $parent.locale()._l9._s5"><!--Canvas is not supported for this browser version.--></span>
+							</canvas>
+							<div class="game-svg-area">
+								<div class="game-svg-container">
+									<svg class="game-svg" viewBox="0 0 690 460" preserveAspectRatio="none">
+										<g class="game-svg-group" >
+										</g>
+
+
+										<g class="craps-stake-group hide-stakes dont-pass-bar" id="craps-stake-2-0">
+											<polygon class="craps-stake" points="571,28 594,64 602,215 580,215"></polygon>
+											<polygon class="craps-stake" points="244,281 521,281 521,306 244,306"></polygon>
+											<title>Don't Pass Bar</title>
+										</g>
+
+										<polygon id="craps-stake-8-4" class="craps-stake hide-stakes dont-pass-odds-4" points="410,281 521,281 521,306 410,306"></polygon>
+										<polygon id="craps-stake-8-5" class="craps-stake hide-stakes dont-pass-odds-5" points="410,281 521,281 521,306 410,306"></polygon>
+										<polygon id="craps-stake-8-6" class="craps-stake hide-stakes dont-pass-odds-6" points="410,281 521,281 521,306 410,306"></polygon>
+										<polygon id="craps-stake-8-8" class="craps-stake hide-stakes dont-pass-odds-8" points="410,281 521,281 521,306 410,306"></polygon>
+										<polygon id="craps-stake-8-9" class="craps-stake hide-stakes dont-pass-odds-9" points="410,281 521,281 521,306 410,306"></polygon>
+										<polygon id="craps-stake-8-10" class="craps-stake hide-stakes dont-pass-odds-10" points="410,281 521,281 521,306 410,306"></polygon>
+
+										<polygon id="craps-stake-7-4" class="craps-stake hide-stakes pass-odds-4" points="410,309 521,309 521,340 410,340"></polygon>
+										<polygon id="craps-stake-7-5" class="craps-stake hide-stakes pass-odds-5" points="410,309 521,309 521,340 410,340"></polygon>
+										<polygon id="craps-stake-7-6" class="craps-stake hide-stakes pass-odds-6" points="410,309 521,309 521,340 410,340"></polygon>
+										<polygon id="craps-stake-7-8" class="craps-stake hide-stakes pass-odds-8" points="410,309 521,309 521,340 410,340"></polygon>
+										<polygon id="craps-stake-7-9" class="craps-stake hide-stakes pass-odds-9" points="410,309 521,309 521,340 410,340"></polygon>
+										<polygon id="craps-stake-7-10" class="craps-stake hide-stakes pass-odds-10" points="410,309 521,309 521,340 410,340"></polygon>
+
+
+										<polygon id="craps-stake-4-0" class="craps-stake hide-stakes dont-come-bar" points="513,26 569,26 575,153 518,153"><title>Don't Come Bar</title></polygon>
+										<polygon id="craps-stake-1-0" class="craps-stake hide-stakes pass-line" points="599,72 628,119 639,283 638,297 636,308 633,317 630,322 626,327 618,332 609,335 599,337 589,338 579,339 242,340 243,309 593,309 602,309 606,307 610,302 612,296"><title>Pass Line</title></polygon>
+
+										<g class="craps-stake-group-e horn-11 hide-stakes" id="craps-stake-20-11">
+											<circle cx="31" cy="174.5" r="7.5"  class="craps-stake"></circle>
+											<circle cx="26" cy="195" r="7.5"  class="craps-stake"></circle>
+											<circle cx="25" cy="216" r="7.5"  class="craps-stake"></circle>
+											<circle cx="24" cy="237" r="7.5"  class="craps-stake"></circle>
+											<circle cx="22" cy="261.5" r="7.5"  class="craps-stake"></circle>
+											<circle cx="20.5" cy="282" r="7.5"  class="craps-stake"></circle>
+											<circle cx="19" cy="301.5" r="7.5"  class="craps-stake"></circle>
+											<circle cx="17.5" cy="323" r="7.5"  class="craps-stake"></circle>
+											<polygon class="craps-stake" points="57,296 177,296 176,325 55,325"></polygon>
+											<circle cx="217.5" cy="174.5" r="7.5"  class="craps-stake"></circle>
+											<circle cx="220" cy="195" r="7.5"  class="craps-stake"></circle>
+											<circle cx="219.5" cy="216" r="7.5"  class="craps-stake"></circle>
+											<circle cx="218.5" cy="237" r="7.5"  class="craps-stake"></circle>
+											<circle cx="218" cy="261.5" r="7.5"  class="craps-stake"></circle>
+											<circle cx="217.5" cy="282.3" r="7.5"  class="craps-stake"></circle>
+											<circle cx="217" cy="301.5" r="7.5"  class="craps-stake"></circle>
+											<circle cx="216" cy="323.5" r="7.5"  class="craps-stake"></circle>
+											<title>Horn 11</title>
+										</g>
+
+										<g class="craps-stake-group-c any-craps hide-stakes"  id="craps-stake-19-0">
+											<circle cx="47" cy="177" r="7.5"  class="craps-stake"></circle>
+											<circle cx="41.5" cy="197.5" r="7.5"  class="craps-stake"></circle>
+											<circle cx="40.5" cy="218.5" r="7.5"  class="craps-stake"></circle>
+											<circle cx="39.5" cy="238.5" r="7.5"  class="craps-stake"></circle>
+											<circle cx="38" cy="261" r="7.5"  class="craps-stake"></circle>
+											<circle cx="36.5" cy="281" r="7.5"  class="craps-stake"></circle>
+											<circle cx="35.5" cy="301.5" r="7.5"  class="craps-stake"></circle>
+											<circle cx="34" cy="322" r="7.5"  class="craps-stake"></circle>
+											<polygon class="craps-stake" points="54,327 177,327 175,356 53,356"></polygon>
+											<circle cx="200.5" cy="177" r="7.5"  class="craps-stake"></circle>
+											<circle cx="203.5" cy="197.5" r="7.5"  class="craps-stake"></circle>
+											<circle cx="203" cy="218.5" r="7.5"  class="craps-stake"></circle>
+											<circle cx="202.5" cy="238.5" r="7.5"  class="craps-stake"></circle>
+											<circle cx="202" cy="261" r="7.5"  class="craps-stake"></circle>
+											<circle cx="201" cy="281" r="7.5"  class="craps-stake"></circle>
+											<circle cx="200.5" cy="301.5" r="7.5"  class="craps-stake"></circle>
+											<circle cx="200" cy="322" r="7.5"  class="craps-stake"></circle>
+											<title>Any Craps</title>
+										</g>
+
+										<polygon id="craps-stake-3-0" class="craps-stake come hide-stakes" points="247,155 575,154 578,215 245,215"><title>Come</title></polygon>
+
+										<polygon id="craps-stake-11-2" class="craps-stake field hide-stakes" points="245,217 578,217 521,280 244,280"><title>Field</title></polygon>
+
+										<polygon id="craps-stake-12-6" class="craps-stake big-6 hide-stakes" points="523,281 551,250 604,303 601,305 596,306 523,306" ><title>Big 6</title></polygon>
+										<polygon id="craps-stake-12-8" class="craps-stake big-8 hide-stakes" points="552,249 580,217 603,217 607,298 604,302 603,300" ><title>Big 8</title></polygon>
+
+										<polygon id="craps-stake-16-4" class="craps-stake lay-4 hide-stakes" points="218,24 242,24 242,41 218,41"><title>Lay 4</title></polygon>
+										<polygon id="craps-stake-16-5" class="craps-stake lay-5 hide-stakes" points="270,24 296,24 296,41 270,41"><title>Lay 5</title></polygon>
+										<polygon id="craps-stake-16-6" class="craps-stake lay-6 hide-stakes" points="323,24 350,24 350,41 323,41"><title>Lay 6</title></polygon>
+										<polygon id="craps-stake-16-8" class="craps-stake lay-8 hide-stakes" points="378,24 405,24 405,41 378,41"><title>Lay 8</title></polygon>
+										<polygon id="craps-stake-16-9" class="craps-stake lay-8 hide-stakes" points="433,24 459,24 459,41 433,41"><title>Lay 9</title></polygon>
+										<polygon id="craps-stake-16-10" class="craps-stake lay-10 hide-stakes" points="488,24 512,24 512,41 488,41"><title>Lay 10</title></polygon>
+
+
+										<polygon id="craps-stake-15-4" class="craps-stake buy-4 hide-stakes" points="190,24 217,24 217,41 189,41"><title>Buy 4</title></polygon>
+										<polygon id="craps-stake-15-5" class="craps-stake buy-5 hide-stakes" points="243,24 269,24 269,41 243,41"><title>Buy 5</title></polygon>
+										<polygon id="craps-stake-15-6" class="craps-stake buy-6 hide-stakes" points="298,24 322,24 322,41 298,41"><title>Buy 6</title></polygon>
+										<polygon id="craps-stake-15-8" class="craps-stake buy-8 hide-stakes" points="352,24 377,24 377,41 352,41"><title>Buy 8</title></polygon>
+										<polygon id="craps-stake-15-9" class="craps-stake buy-8 hide-stakes" points="407,24 432,24 432,41 407,41"><title>Buy 9</title></polygon>
+										<polygon id="craps-stake-15-10" class="craps-stake buy-10 hide-stakes" points="461,24 487,24 487,41 461,41"><title>Buy 10</title></polygon>
+
+
+
+										<polygon id="craps-stake-14-4" class="craps-stake place-4-lose hide-stakes" points="190,42 242,42 242,59 189,59"><title>Place 4 Lose</title></polygon>
+										<polygon id="craps-stake-14-5" class="craps-stake place-5-lose hide-stakes" points="244,42 296,42 296,59 244,59"><title>Place 5 Lose</title></polygon>
+										<polygon id="craps-stake-14-6" class="craps-stake place-6-lose hide-stakes" points="298,42 350,42 350,59 298,59"><title>Place 6 Lose</title></polygon>
+										<polygon id="craps-stake-14-8" class="craps-stake place-8-lose hide-stakes" points="352,42 405,42 405,59 352,59"><title>Place 8 Lose</title></polygon>
+										<polygon id="craps-stake-14-9" class="craps-stake place-9-lose hide-stakes" points="406,42 459,42 459,59 406,59"><title>Place 9 Lose</title></polygon>
+										<polygon id="craps-stake-14-10" class="craps-stake place-10-lose hide-stakes" points="461,42 512,42 513,59 461,59"><title>Place 10 Lose</title></polygon>
+
+
+										<polygon id="craps-stake-6-4" class="craps-stake dont-come-4 hide-stakes" points="190,60 214,60 212,88 188,88"><title>Don't Come 4</title></polygon>
+										<polygon id="craps-stake-10-4" class="craps-stake dont-come-4-odds hide-stakes" points="215,60 242,60 240,88 213,88"><title>Don't Come 4 Odds</title></polygon>
+										<polygon id="craps-stake-5-4" class="craps-stake come-4 hide-stakes" points="188,89 212,89 210,127 186,127"><title>Come 4</title></polygon>
+										<polygon id="craps-stake-9-4" class="craps-stake come-4-odds hide-stakes" points="213,89 240,89 239,127 211,127"><title>Come 4 Odds</title></polygon>
+
+										<polygon id="craps-stake-6-5" class="craps-stake dont-come-5 hide-stakes" points="244,60 269,60 268,88 243,88"><title>Don't Come 5</title></polygon>
+										<polygon id="craps-stake-10-5" class="craps-stake dont-come-5-odds hide-stakes" points="270,60 295,60 294,88 269,88"><title>Don't Come 5 Odds</title></polygon>
+										<polygon id="craps-stake-5-5" class="craps-stake come-5 hide-stakes" points="243,89 268,89 267,127 242,127"><title>Come 5</title></polygon>
+										<polygon id="craps-stake-9-5" class="craps-stake come-5-odds hide-stakes" points="269,89 294,89 294,127 268,127"><title>Come 5 Odds</title></polygon>
+
+										<polygon id="craps-stake-6-6" class="craps-stake dont-come-6 hide-stakes" points="298,60 322,60 322,88 298,88"><title>Don't Come 6</title></polygon>
+										<polygon id="craps-stake-10-6" class="craps-stake dont-come-6-odds hide-stakes" points="323,60 350,60 349,88 323,88"><title>Don't Come 6 Odds</title></polygon>
+										<polygon id="craps-stake-5-6" class="craps-stake come-6 hide-stakes" points="298,89 322,89 322,127 298,127"><title>Come 6</title></polygon>
+										<polygon id="craps-stake-9-6" class="craps-stake come-6-odds hide-stakes" points="323,89 349,89 349,127 323,127"><title>Come 6 Odds</title></polygon>
+
+										<polygon id="craps-stake-6-8" class="craps-stake dont-come-8 hide-stakes" points="353,60 377,60 377,88 353,88"><title>Don't Come 8</title></polygon>
+										<polygon id="craps-stake-10-8" class="craps-stake dont-come-8-odds hide-stakes" points="378,60 405,60 405,88 378,88"><title>Don't Come 8 Odds</title></polygon>
+										<polygon id="craps-stake-5-8" class="craps-stake come-8 hide-stakes" points="353,89 377,89 377,127 353,127"><title>Come 8</title></polygon>
+										<polygon id="craps-stake-9-8" class="craps-stake come-8-odds hide-stakes" points="378,89 405,89 405,127 378,127"><title>Come 8 Odds</title></polygon>
+
+										<polygon id="craps-stake-6-9" class="craps-stake dont-come-9 hide-stakes" points="408,60 432,60 432,88 408,88"><title>Don't Come 9</title></polygon>
+										<polygon id="craps-stake-10-9" class="craps-stake dont-come-9-odds hide-stakes" points="433,60 458,60 459,88 433,88"><title>Don't Come 9 Odds</title></polygon>
+										<polygon id="craps-stake-5-9" class="craps-stake come-9 hide-stakes" points="408,89 432,89 432,127 408,127"><title>Come 9</title></polygon>
+										<polygon id="craps-stake-9-9" class="craps-stake come-9-odds hide-stakes" points="433,89 459,89 460,127 433,127"><title>Come 9 Odds</title></polygon>
+
+										<polygon id="craps-stake-6-10" class="craps-stake dont-come-10 hide-stakes" points="461,60 487,60 488,88 463,88"><title>Don't Come 10</title></polygon>
+										<polygon id="craps-stake-10-10" class="craps-stake dont-come-10-odds hide-stakes" points="488,60 513,60 514,88 489,88"><title>Don't Come 10 Odds</title></polygon>
+										<polygon id="craps-stake-5-10" class="craps-stake come-10 hide-stakes" points="463,89 488,89 489,127 464,127"><title>Come 10</title></polygon>
+										<polygon id="craps-stake-9-10" class="craps-stake come-10-odds hide-stakes" points="489,89 514,89 515,127 491,127"><title>Come 10 Odds</title></polygon>
+
+										<polygon id="craps-stake-13-4" class="craps-stake place-4-win hide-stakes" points="187,128 240,128 239,150 186,150"><title>Place 4 Win</title></polygon>
+										<polygon id="craps-stake-13-5" class="craps-stake place-5-win hide-stakes" points="242,128 295,128 294,150 242,150"><title>Place 5 Win</title></polygon>
+										<polygon id="craps-stake-13-6" class="craps-stake place-6-win hide-stakes" points="297,128 350,128 350,150 297,150"><title>Place 6 Win</title></polygon>
+										<polygon id="craps-stake-13-8" class="craps-stake place-8-win hide-stakes" points="352,128 406,128 406,150 352,150"><title>Place 8 Win</title></polygon>
+										<polygon id="craps-stake-13-9" class="craps-stake place-9-win hide-stakes" points="408,128 461,128 462,150 408,150"><title>Place 9 Win</title></polygon>
+										<polygon id="craps-stake-13-10" class="craps-stake place-10-win hide-stakes" points="463,128 515,128 516,150 464,150"><title>Place 20 Win</title></polygon>
+
+										<polygon id="craps-stake-20-3" class="craps-stake horn-3 hide-stakes" points="59,264 97,264 95,294 57,294"><title>Horn 3</title></polygon>
+										<polygon id="craps-stake-20-2" class="craps-stake horn-2 hide-stakes" points="99,264 138,264 136,294 97,294"><title>Horn 2</title></polygon>
+										<polygon id="craps-stake-20-12" class="craps-stake horn-12 hide-stakes" points="140,264 178,264 177,294 139,294"><title>Horn 12</title></polygon>
+
+										<polygon id="craps-stake-21-8" class="craps-stake hard-8 hide-stakes" points="61,232 119,232 118,262 59,262"><title>Hard 8</title></polygon>
+										<polygon id="craps-stake-21-4" class="craps-stake hard-4 hide-stakes" points="121,232 180,232 179,262 120,262"><title>Hard 4</title></polygon>
+										<polygon id="craps-stake-21-6" class="craps-stake hard-6 hide-stakes" points="62,201 121,201 119,230 60,230"><title>Hard 6</title></polygon>
+										<polygon id="craps-stake-21-10" class="craps-stake hard-10 hide-stakes" points="123,201 181,201 180,230 121,230"><title>Hard 10</title></polygon>
+
+										<polygon id="craps-stake-17-0" class="craps-stake any-seven hide-stakes" points="72,170 174,170 181,199 62,199"><title>Any Seven</title></polygon>
+									</svg>
+								</div>
+							</div>
+						</div>
+						<div class="craps-stakes-chips-wrapper">
+							<div class="craps-stakes-chips chips-1" data-amount="1"></div>
+							<div class="craps-stakes-chips chips-5" data-amount="5"></div>
+							<div class="craps-stakes-chips chips-10" data-amount="10"></div>
+							<div class="craps-stakes-chips chips-25" data-amount="25"></div>
+							<div class="craps-stakes-chips chips-50" data-amount="50"></div>
+							<div class="craps-stakes-chips chips-100" data-amount="100"></div>
+							<div class="craps-stakes-chips chips-500" data-amount="500"></div>
+						</div>
+						<div class="stakes-wrapper">
+							<div class="stakes-block stakes-2_0"></div>
+							<div class="stakes-block stakes-4_0"></div>
+							<div class="stakes-block stakes-6_4"></div>
+							<div class="stakes-block stakes-6_5"></div>
+							<div class="stakes-block stakes-6_6"></div>
+							<div class="stakes-block stakes-6_8"></div>
+							<div class="stakes-block stakes-6_9"></div>
+							<div class="stakes-block stakes-6_10"></div>
+							<div class="stakes-block stakes-8_4"></div>
+							<div class="stakes-block stakes-8_5"></div>
+							<div class="stakes-block stakes-8_6"></div>
+							<div class="stakes-block stakes-8_8"></div>
+							<div class="stakes-block stakes-8_9"></div>
+							<div class="stakes-block stakes-8_10"></div>
+							<div class="stakes-block stakes-10_4"></div>
+							<div class="stakes-block stakes-10_5"></div>
+							<div class="stakes-block stakes-10_6"></div>
+							<div class="stakes-block stakes-10_8"></div>
+							<div class="stakes-block stakes-10_9"></div>
+							<div class="stakes-block stakes-10_10"></div>
+							<div class="stakes-block stakes-12_6"></div>
+							<div class="stakes-block stakes-12_8"></div>
+							<div class="stakes-block stakes-14_4"></div>
+							<div class="stakes-block stakes-14_5"></div>
+							<div class="stakes-block stakes-14_6"></div>
+							<div class="stakes-block stakes-14_8"></div>
+							<div class="stakes-block stakes-14_9"></div>
+							<div class="stakes-block stakes-14_10"></div>
+							<div class="stakes-block stakes-16_4"></div>
+							<div class="stakes-block stakes-16_5"></div>
+							<div class="stakes-block stakes-16_6"></div>
+							<div class="stakes-block stakes-16_8"></div>
+							<div class="stakes-block stakes-16_9"></div>
+							<div class="stakes-block stakes-16_10"></div>
+							<div class="stakes-block stakes-20_2"></div>
+							<div class="stakes-block stakes-20_3"></div>
+							<div class="stakes-block stakes-20_11"></div>
+							<div class="stakes-block stakes-20_12"></div>
+							<div class="stakes-block stakes-1_0"></div>
+							<div class="stakes-block stakes-3_0"></div>
+							<div class="stakes-block stakes-5_4"></div>
+							<div class="stakes-block stakes-5_5"></div>
+							<div class="stakes-block stakes-5_6"></div>
+							<div class="stakes-block stakes-5_8"></div>
+							<div class="stakes-block stakes-5_9"></div>
+							<div class="stakes-block stakes-5_10"></div>
+							<div class="stakes-block stakes-7_4"></div>
+							<div class="stakes-block stakes-7_5"></div>
+							<div class="stakes-block stakes-7_6"></div>
+							<div class="stakes-block stakes-7_8"></div>
+							<div class="stakes-block stakes-7_9"></div>
+							<div class="stakes-block stakes-7_10"></div>
+							<div class="stakes-block stakes-9_4"></div>
+							<div class="stakes-block stakes-9_5"></div>
+							<div class="stakes-block stakes-9_6"></div>
+							<div class="stakes-block stakes-9_8"></div>
+							<div class="stakes-block stakes-11_2"></div>
+							<div class="stakes-block stakes-9_9"></div>
+							<div class="stakes-block stakes-11_3"></div>
+							<div class="stakes-block stakes-9_10"></div>
+							<div class="stakes-block stakes-11_4"></div>
+							<div class="stakes-block stakes-11_9"></div>
+							<div class="stakes-block stakes-11_10"></div>
+							<div class="stakes-block stakes-13_4"></div>
+							<div class="stakes-block stakes-11_11"></div>
+							<div class="stakes-block stakes-13_5"></div>
+							<div class="stakes-block stakes-11_12"></div>
+							<div class="stakes-block stakes-13_6"></div>
+							<div class="stakes-block stakes-13_8"></div>
+							<div class="stakes-block stakes-13_9"></div>
+							<div class="stakes-block stakes-13_10"></div>
+							<div class="stakes-block stakes-15_4"></div>
+							<div class="stakes-block stakes-15_5"></div>
+							<div class="stakes-block stakes-15_6"></div>
+							<div class="stakes-block stakes-17_0"></div>
+							<div class="stakes-block stakes-15_8"></div>
+							<div class="stakes-block stakes-15_9"></div>
+							<div class="stakes-block stakes-15_10"></div>
+							<div class="stakes-block stakes-19_0"></div>
+							<div class="stakes-block stakes-21_4"></div>
+							<div class="stakes-block stakes-21_6"></div>
+							<div class="stakes-block stakes-21_8"></div>
+							<div class="stakes-block stakes-21_10"></div>
+						</div>
+						<div class="button-area background-block" >
+								<div class="table-freechips-button" data-bind="touch: $parent.supersonic.showSupersonicPopup"></div>
+							<!-- only for stud -->
+
+
+							<!-- only for stud -->
+							<div class="table-gifts-button" data-bind="touch: $parent.gifts.openFromTable"></div>
+                            
+                            <div class="mid-block">
+                                <div class="player-actions-buttons">
+                                    <div class="table player-actions-buttons-table">
+                                        <div class="join-wait-list-block player-actions-button table-cell"></div>
+                                        <div class="im-back-block clickable player-actions-button table-cell"></div>
+                                    </div>
+                                </div>
+
+                                <div class="buttons-container">
+                                    <div class="buttons-block table">
+										<div class="buttons-bet left-footer-buttons table-cell">
+
+										</div>
+                                        <div class="buttons-block-0 left-footer-buttons table-cell">
+
+                                        </div>
+                                        <div class="buttons-block-1 left-footer-buttons table-cell">
+
+                                        </div>
+                                        <div class="buttons-allin raise-buttons left-footer-buttons table-cell">
+
+                                        </div>
+										<div class="craps-clear-button center-footer-buttons table-cell">
+
+										</div>
+
+										<div class="craps-repeat-button center-footer-buttons table-cell">
+
+										</div>
+                                        <div class="buttons-block-2 center-footer-buttons table-cell">
+
+                                        </div>
+										<div class="buttons-block-3 center-footer-buttons table-cell">
+
+										</div>
+										<div class="buttons-block-4 center-footer-buttons table-cell">
+
+										</div>
+                                        <div class="buttons-pot-1-3 raise-buttons right-footer-buttons table-cell">
+
+                                        </div>
+                                        <div class="buttons-pot-1-2 raise-buttons right-footer-buttons table-cell">
+
+                                        </div>
+                                        <div class="buttons-pot-2-3 raise-buttons right-footer-buttons table-cell">
+
+                                        </div>
+                                        <div class="buttons-pot raise-buttons right-footer-buttons table-cell">
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="actions-container">
+                                    <div class="actions-unstable">
+                                        <div class="actions-block">
+                                            <div class="actions-row">
+                                                <div class="actions-block-1 action-checkbox"></div>
+	                                            <div class="actions-block-2 action-checkbox"></div>
+                                            </div>
+                                            <div class="actions-row">
+	                                            <div class="actions-block-0 action-checkbox"></div>
+                                                <div class="actions-block-3 action-checkbox"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+						<!-- only for stud -->
+						<div class="vegas-table-menu" data-bind="touch: $parent.tablesSnap.tableMenu.toggleTableMenu">
+							<div class="vegas-table-menu-content" data-bind="text: $parent.locale()._l9._X3">
+							</div>
+						</div>
+
+						<div class="table-chips-button" data-bind="touch: $parent.inAppPayment.openBuyChips">
+							<span class="table-chips-button-text" data-bind="text: $parent.locale()._l9._D6"></span>
+						</div>
+                        <div class="table-info-container-left">
+                            <div class="table-info">
+                                <div class="table-info-inner">
+                                    <span style="color: #6AD616;" data-bind="text: $parent.locale()._l9._O0"></span>
+                                    <span data-bind="attr: {id: 'table-' + id + '-name'}"></span>
+                                </div>
+                                <!-- ko if: tournamentId == 0 -->
+                                <div class="table-info-inner">
+                                    <span style="color: #6AD616;" data-bind="text: $parent.locale()._l9._J0"></span>
+                                    <span data-bind="attr: {id: 'table-' + id + '-stakes'}"></span>
+                                </div>
+                                <!-- /ko -->
+                            </div>
+                        </div>
+
+						<div class="table-info-container-extend">
+							<div class="table-info-extend">
+								<div class="table-info-inner-extend name">
+									<span data-bind="attr: {id: 'extend-table-' + id + '-name'}"></span>
+								</div>
+								<div class="table-info-inner-extend bets">
+									<span class="table-info-label-extend" style="float: left; direction: ltr;" data-bind="text: $parent.locale()._l9._C5"></span>
+									<span  style="float: left;  direction: ltr;" data-bind="attr: {id: 'table-' + id + '-bets'}"></span>
+								</div>
+								<div class="table-info-inner-extend payout">
+									<span class="table-info-label-extend" style="float: left"  data-bind="text: $parent.locale()._l9._q7"></span>
+									<span style="float: left"  data-bind="attr: {id: 'table-' + id + '-payout'}"></span>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="holder-label-highest-cards" data-bind="text: $parent.locale()._l9._Q7"></div>
+						<div class="holder-label-2-highest-cards" data-bind="html: $parent.locale()._l9._W2"></div>
+
+						<!-- ko if: $parent.tablesSnap.hasHighCardsBlock -->
+						<div class="table-high-cards-block">
+							<span data-bind="text: $parent.locale()._l9._t4"></span>
+							<span data-bind="text: highCards.cardValues"></span>
+						</div>
+						<!-- /ko -->
+
+						<div class="table-info-container-right">
+							<div class="table-info">
+								<div class="table-info-inner">
+									<span data-bind="text: mainPot"></span>
+									<span style="color: #6AD616;" data-bind="text: $parent.locale()._l9._V8"></span>
+								</div>
+								<div class="table-info-inner">
+									<span data-bind="text: sidePot"></span>
+									<span style="color: #6AD616;" data-bind="text: $parent.locale()._l9._v2"></span>
+								</div>
+							</div>
+						</div>
+
+                            <div class="popup-back" id="raise-dialog-popup">
+                                <!--POPUP BACKGROUND: BEGIN-->
+                                <div class="popup_background"></div>
+                                <!--POPUP BACKGROUND: END-->
+                                <!--POPUP CONTENT: BEGIN-->
+                                <div class="popup_content">
+
+                                            <div class="confirm-popup">
+                                                <div class="confirm-textarea">
+                                                    <div id="raise-block" class="enterra-slider">
+
+                                                        <div class="raise-slider-holder">
+                                                            <div class="slider-minus" data-bind="event: {touchstart: $parent.tablesSnap.decreaseRaiseSlider, mousedown: $parent.tablesSnap.decreaseRaiseSlider, touchleave: $parent.tablesSnap.stopRaiseSlider, touchend: $parent.tablesSnap.stopRaiseSlider, mouseup: $parent.tablesSnap.stopRaiseSlider}" ></div>
+                                                            <input data-type="range" type="text" name="slider" id="raise-slider"
+                                                                value="0" min="0" max="100" step="1" data-highlight="true" />
+
+                                                            <div class="slider-plus" data-bind="event: {touchstart: $parent.tablesSnap.increaseRaiseSlider, mousedown: $parent.tablesSnap.increaseRaiseSlider, touchleave: $parent.tablesSnap.stopRaiseSlider, touchend: $parent.tablesSnap.stopRaiseSlider, mouseup: $parent.tablesSnap.stopRaiseSlider}" ></div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="confirm-buttons">
+                                                    <div class="table-bank-roll clear" data-bind="text: ($parent.locale()._l9._i).format($parent.profile.playCash())"><!--Your bankroll--></div>
+													<div class="table-bets clear" data-bind="text: ($parent.locale()._l9._K3).format($parent.tablesSnap.minBet(),$parent.tablesSnap.maxBet())"><!--Min/Max Bet--></div>
+                                                </div>
+                                            </div>
+
+                                </div>
+                                <!--POPUP CONTENT: END-->
+	                            <div class="raise-text"></div>
+                            </div>
+
+					</div>
+				</div>
+			</script>
+		
+		<div class="table-screen-page" data-bind="template: { name: 'table-template', foreach: tablesSnap.openedTables }">
+		</div>
+		<div class="popup-back" id="drop-popup">
+			<div class="popup_background"></div>
+			<div class="label-highest-cards" data-bind="text: locale()._l9._O3"></div>
+			<div class="label-2-highest-cards" data-bind="html: locale()._l9._W2"></div>
+			<div id="drop-popup-close-button" class="drop-popup-close-button">X</div>
+			<div class="drag-to-sort-text" data-bind="text: locale()._l9._q3"></div>
+			<div class="play-hand-button-wrapper">
+				<button data-role="none" type="button" class="game-button" id="play-hand-button" data-bind="text: locale()._l9._4"></button>
+			</div>
+
+			<div class="popup_content dropzone" id="main-card-holder">
+				<div class="card-holder-1 dropzone"></div>
+				<div class="card-holder-2 dropzone"></div>
+			</div>
+		</div>
+		<div id="craps-table-dice-history">
+
+		</div>
+		<div id="craps-table-total-bet">
+			<div id="craps-table-total-bet-text" data-bind="text: locale()._l9._c3"></div>
+			<div id="craps-table-total-bet-number"></div>
+		</div>
+		<div id="craps-min-bet">
+			<div id="craps-min-bet-text" data-bind="text: locale()._l9._e0"><!--Minimum bet--></div>
+			<div id="craps-min-bet-amount"><!--100--></div>
+		</div>
+		<div id="craps-max-bet">
+			<div id="craps-max-bet-text" data-bind="text: locale()._l9._L8"><!--Maximum sum--></div>
+			<div id="craps-max-bet-amount"><!--10000--></div>
+		</div>
+		<div id="craps-point-text" data-bind="text: locale()._l9._b7"><!--Point:--></div>
+		<div id="craps-point-value" data-bind="text: locale()._l9._21"><!--Off--></div>
+		<div id="craps-table-player-money"><!--10K--></div>
+	</div>
+
+	<div class="popup-back" id="buy-in-form">
+		<!--POPUP BACKGROUND: BEGIN-->
+		<div class="popup_background"></div>
+		<!--POPUP BACKGROUND: END-->
+		<!--POPUP CONTENT: BEGIN-->
+
+		<div class="popup_content">
+			<table rows="1" cols="1" width="100%" height="100%" class="confirm-holder">
+				<tr>
+					<td align="center" valign="center">
+						<div class="confirm-popup">
+							<div class="confirm-textarea">
+								<div  class="enterra-slider">
+									<div  class="by-in-to-game" data-bind="text: locale()._l9._C4">
+                                        <!--Buy in to the game!-->
+									</div>
+									<div class="dividing-line"></div>
+									<div class="table-text-note" data-bind="text: locale()._l9._C6">
+										<!--Note: Blinds are collected every time you site at table-->
+									</div>
+									<div class="raise-slider-holder">
+										<div class="slider-minus" data-bind="event: {touchstart: tablesSnap.decreaseBuyInSlider, touchend: tablesSnap.stopBuyInSlider, mousedown: tablesSnap.decreaseBuyInSlider, touchend: tablesSnap.stopBuyInSlider, mouseup: tablesSnap.stopBuyInSlider, touchleave: tablesSnap.stopBuyInSlider}" ></div>
+										<input data-type="range" type="text" name="slider2" id="cashier-slider"
+											value="1000" min="1000" max="3000" step="100" data-highlight="true"/>
+										<div class="slider-plus" data-bind="event: {touchstart: tablesSnap.increaseBuyInSlider, mousedown: tablesSnap.increaseBuyInSlider, touchend: tablesSnap.stopBuyInSlider, mouseup: tablesSnap.stopBuyInSlider, touchleave: tablesSnap.stopBuyInSlider}" ></div>
+									</div>
+									<div class="table-bank-roll clear" id="table-text-buyin-bankroll"><!--Your bankroll--></div>
+									<div class="auto-checkbox-buy-in">
+										<div class="auto-buy-in-item" >
+											<div class="checkbox-item-row" data-bind="click: tablesSnap.toggleAutoReBuy, css: {'checked': tablesSnap.isAutoReBuy}">
+												<div class="checkbox-item-checkbox">
+													<div class="vegas-checkbox"></div>
+												</div>
+												<div class="checkbox-item-box">
+													<div class="checkbox-item-label" data-bind="html: locale()._l9._L6" class="item-option-name"></div>
+													<div class="checkbox-item-desc" data-bind="html: locale()._l9._k5" class="item-option-name"></div>
+												</div>
+											</div>
+										</div>
+										<div class="dividing-line" style="margin: 0 0 0 45px; position: relative; left: 9%;"></div>
+										<div class="auto-top-up-item" >
+											<div class="checkbox-item-row" data-bind="click: tablesSnap.toggleAutoTopUp, css: {'checked': tablesSnap.isAutoTopUp}">
+												<div class="checkbox-item-checkbox">
+													<div class="vegas-checkbox"></div>
+												</div>
+												<div class="checkbox-item-box">
+													<div class="checkbox-item-label" data-bind="html: locale()._l9._h6" class="item-option-name"></div>
+													<div class="checkbox-item-desc" data-bind="html: locale()._l9._h6_DESCRIPTION$" class="item-option-name"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="confirm-buttons">
+								<div class="enterra-button">
+									<div class="enterra-button clickable" id="cashier-holder-ok"></div>
+								</div>
+								<div class="enterra-button">
+									<div class="enterra-button clickable" id="cashier-holder-cancel"></div>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+	</div>
+		<!--POPUP CONTENT: END-->
+	<!--POPUP CONTENT: END-->
+
+	
+
+	</div>
+	{{html _blockad}}
+</div>

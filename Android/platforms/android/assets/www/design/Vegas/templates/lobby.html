@@ -1,0 +1,133 @@
+<div data-role="page" id="lobby" data-theme="a" data-title="SocialPoker" data-url="lobby" onclick="return false;" class="data-role-page">
+	<div id="lobby-page-content" class="page-content" data-role="content">
+
+		<div class="top-user-bar">
+			<div class="top-user-bar-tab-container">
+
+				<div class="top-user-block">
+					<div id="header-avatar" class="header-block">
+						<div class="header-block-button">
+							<div id="header-avatar-back" class="lobby-avatar-background-block">
+
+								<!-- <div id="header-avatar-image" data-bind="style: { backgroundImage: 'url(' + ((typeof publicProfile != 'undefined') ? publicProfile.clientAvatar() : profile.avatar()) + ')' }"></div> -->
+
+								<!-- <div> profile.avatar() </div> -->
+								<div id="header-avatar-image" data-bind="style: { backgroundImage: 'url('+ publicProfile.clientAvatar()+')' }"></div>
+
+								<!-- <div id="header-avatar-image" data-bind="style: { backgroundImage: 'url(' + ((typeof publicProfile != 'undefined') ? publicProfile.clientAvatar() : profile.avatar()) + ')' }"></div> -->
+							</div>
+						</div>
+					</div>
+					<div class="background-block header-block header-profile">
+						<div class="header-block-button">
+							<div id="profile-name" class="fill-block">
+								<div class="header-profile-block ellipsis-text header-profile-welcome-block" data-bind="text: locale()._K5._29 + ((typeof publicProfile != 'undefined')? publicProfile.clientName() : profile.nick()) + '!'">
+									Guest
+								</div>
+							</div>
+							<div id="profile-chips" class="fill-block">
+								<div class="background-block player-chip header-profile-block">
+									<span class="header-profile-chips-value" data-bind="text: profile.playCash()"></span>
+									<span data-bind="text: locale()._K5._t5"></span>
+									<span class="header-profile-chips-value" data-bind="text: profile.realCash()"></span>
+									<span data-bind="text: locale()._K5._e8"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="top-level-block">
+					<div class='level-indicator'>
+						<canvas id='canvas-level-indicator' width="200px" height="200px"></canvas>
+					</div>
+					<div class="level-text-info">
+						<div class="level-text-level">
+							<div class="level-label" data-bind="text:locale()._u2._h9"></div>
+							<br>
+							<div class="level-number" data-bind="text: (typeof achievements != 'undefined')? achievements.levelNumber() : ''"></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="top-user-button-block">
+					<div class="table-lobby-menu-buttons">
+						<div class="table-cell-lobby-menu-buttons first-lobby-menu-button">
+							<div data-bind="touch: menu.openPage.bind($data, 'gift-shop')" class="top-user-button clickable">
+								<div class="top-user-button-div user-menu-gifts">
+								</div>
+								<div data-bind="text: locale()._K5._0" class="top-user-button-label"></div>
+							</div>
+						</div>
+
+						<div class="table-cell-lobby-menu-buttons third-lobby-menu-button ">
+							<div data-bind="touch: menu.likePage" class="top-user-button clickable">
+								<div class="top-user-button-div user-menu-achievements">
+								</div>
+								<div data-bind="text: locale()._K5._x7" class="top-user-button-label"></div>
+							</div>
+						</div>
+						<div class="table-cell-lobby-menu-buttons  second-lobby-menu-button ">
+							<div data-bind="touch: inAppPayment.openBuyChips" class="top-user-button clickable">
+								<div class="top-user-button-div user-menu-chips">
+								</div>
+								<div data-bind="text: locale()._K5._q6" class="top-user-button-label"></div>
+							</div>
+						</div>
+						<div class="table-cell-lobby-menu-buttons fourth-lobby-menu-button">
+							<div data-bind="enable: (typeof friends != 'undefined'), touch: menu.openPage.bind($data, 'friends')" class="top-user-button clickable">
+								<div class="top-user-button-div user-menu-friends">
+									<div id="top-user-friends-count" data-bind="text: friends.onlineFriendsCount"></div>
+								</div>
+								<div data-bind="text: locale()._K5._E3" class="top-user-button-label"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="lobby-menu-button-row">
+			<div class="lobby-freechips-button" data-bind="touch: supersonic.showSupersonicPopup"></div>
+			<div class="lobby-menu-button-container">
+
+				<div data-bind="touch: menu.openPage.bind($data, 'lobby-tournaments-filters')" class="lobby-menu-button lobby-menu-button2 clickable">
+					<div class="lobby-menu-button-div">
+						<div class="lobby-menu-button-two"></div>
+						<div class="lobby-menu-button-div-shadow"></div>
+					</div>
+				</div>
+
+
+				<div data-bind="click: tablesSnap.canAdd()? account.start.bind($data.account): menu.openPage.bind($data, 'tables')" class="lobby-menu-button lobby-menu-button1 clickable">
+					<div class="lobby-menu-button-div">
+						<div class="lobby-menu-button-one"></div>
+						<div class="lobby-menu-button-div-shadow"></div>
+					</div>
+				</div>
+
+				<!--
+				   -->
+
+				<div data-bind="touch: menu.openPage.bind($data, 'lobby-tables-filters')" class="lobby-menu-button lobby-menu-button3 clickable">
+					<div class="lobby-menu-button-div">
+						<div class="lobby-menu-button-three"></div>
+						<div class="lobby-menu-button-div-shadow"></div>
+					</div>
+				</div>
+
+				<div data-bind="touch: inAppPayment.openBuyChips" class="lobby-menu-button lobby-menu-button4 clickable">
+					<div class="lobby-menu-button-div">
+						<div class="lobby-menu-button-four"></div>
+						<div class="lobby-menu-button-div-shadow"></div>
+					</div>
+				</div>
+
+				<br class="clear">
+			</div>
+		</div>
+
+	</div>
+	{{html _footer}} {{html _leaderboard}}
+</div>

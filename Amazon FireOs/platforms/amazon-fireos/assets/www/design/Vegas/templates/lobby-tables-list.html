@@ -1,0 +1,36 @@
+<div data-role="page" id="lobby-tables-list" data-theme="a" data-title="VegasPoker" data-url="lobby-tables-list" onclick="return false;" class="data-role-page">
+	<div id="lobby-tables-list-page-content" class="page-content" data-role="content">
+
+		<div class="page-header">
+			<div class="table-cell header-block-back">
+
+				<div data-bind="touch: menu.back" class="back-button lobby-back-button row-left-block">
+					<div class="header-block-back-button table">
+						<div class="table-cell header-block-back-cell">
+							<div data-bind="text: locale()._f1._51"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="table-cell page-header-column ">
+                <div class="header-block-title">
+                    <div class="header-block-title-text" data-bind="text: locale()._s2._C"></div>
+                </div>
+            </div>
+            <div class="header-refresh-container">
+                <div class="header-refresh-button scroll-refresh-button"></div>
+            </div>
+            <button class="refresh-button lobby-refresh-button scroll-refresh-button" data-role="none" type="button" data-bind=""></button>
+
+        </div>
+		<div class="t-table-tournament-list t-table" >
+			<!-- ko template: lobby.tableListTemplateName() --><!-- /ko -->
+		</div>
+	</div>
+
+	{{html _footer}}
+	{{html _leaderboard}}
+	{{html _blockad}}
+</div>

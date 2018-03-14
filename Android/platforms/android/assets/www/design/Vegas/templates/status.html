@@ -1,0 +1,72 @@
+<div data-role="page" id="status" data-theme="a" data-title="VegasPoker" data-url="status" onclick="return false;" class="data-role-page">
+	<style>
+		#status {
+			width: 100%;
+			height: 100%;
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			background-position: center;
+			z-index: 100;
+		}
+		#status-logo {
+			position: absolute;
+			top: 0;
+			bottom: 20%;
+			left: 15%;
+			right: 15%;
+			background-image: url("design/Vegas/images/loader/logo.png");
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: center;
+		}
+		#status-error {
+			text-align: center;
+			position: absolute;
+			bottom: 35%;
+			width: 100%;
+		}
+		#status-message {
+			text-align: center;
+			position: absolute;
+			bottom: 25%;
+			width: 100%;
+		}
+		.refresh-button {
+			background-image: url("design/Vegas/images/buttons/blue_but.png");
+			background-color: transparent;
+			background-size: 100% 100%;
+			border: none;
+			outline: none;
+			width: 49%;
+			color: #ffffff;
+			display: inline-block;
+			font-size: 150%;
+			text-shadow: 1px 1px 0px #111;
+			font-weight: bold;
+			cursor: pointer;
+			line-height: 200%;
+		}
+		.refresh-button:active {
+			opacity: 0.8;
+		}
+		.refresh-buttons-block {
+			position: absolute;
+			width: 100%;
+			bottom: 10%;
+		}
+	</style>
+	<div id="status-logo"></div>
+	<div id="status-error"></div>
+	<div id="status-message"></div>
+	<!-- ko if: device === "Web" || device === "iOS" -->
+	<div class="refresh-buttons-block">
+		<button class="refresh-button" style="margin-left: 25%;" data-role="none" data-bind="click: function () {location.reload();}, text: locale()._41._u6"></button>
+	</div>
+	<!-- /ko -->
+	<!-- ko if: device === "Android" -->
+	<div class="refresh-buttons-block"><div style="width: 85%; margin: 0 auto;">
+		<button class="refresh-button" data-role="none" data-bind="click: function () {navigator.app && navigator.app.exitApp();}, text: locale()._j3._D"></button>
+		<button class="refresh-button" data-role="none" data-bind="click: function () {location.reload();}, text: locale()._41._u6"></button>
+	</div></div>
+	<!-- /ko -->
+</div>

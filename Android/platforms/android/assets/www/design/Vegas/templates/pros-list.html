@@ -1,0 +1,73 @@
+<div data-role="page" id="pros-list" data-theme="a" data-title="VegasPoker" data-url="pros-list" onclick="return false;" class="data-role-page">
+	<div id="pros-list-page-header" class="page-header">
+		<button class="lobby-back-button" data-role="none" type="button" data-bind="touch: menu.openPage.bind($data, 'home'), text: locale()._f1._51">
+		</button>
+		<div class="lobby-header-title ellipsis-text">
+			<div class="lobby-header-title-text ellipsis-text">
+				<span class="ellipsis-text" data-bind="text: locale()._n2._z4"><!--PROs ONLINE--></span> (<span data-bind="text: pros.onlineProsList.totalLength"></span>)
+			</div>
+		</div>
+		<button class="scroll-refresh-button" data-role="none" type="button" data-bind="text: locale()._z5._z8">
+		</button>
+	</div>
+
+	<div id="pros-list-page-content" class="page-content" data-role="content">
+		<div id="scroll-wrapper" class="lobby-scroll-wrapper">
+
+				<div id="scroller" class="lobby-scroller">
+					<table class="scroll-table scroll-list">
+						<tbody data-bind="visible: !pros.onlineProsList.hasElements()">
+						<tr class="listview listview-empty">
+							<td colspan="3" data-bind="text: locale()._W"></td>
+						</tr>
+						</tbody>
+						<tbody data-bind="visible: pros.onlineProsList.hasElements()">
+						<!-- ko foreach: pros.onlineProsList.elements -->
+						<tr class="listview">
+							<td class="listview-cell pros-table-avatar">
+								<div class="pros-avatar-back">
+									<img class="pros-avatar" data-bind="attr: {src: avatarSrc}"/>
+								</div>
+							</td>
+							<td class="listview-cell table-left-align pros-table-name ellipsis-text" data-bind="text: nick">
+								<!--Name-->
+							</td>
+							<td class="listview-cell">
+								<!-- Tables -->
+								<div data-bind="foreach: tablesArray" class="fill-block">
+									<div class="fill-half-block ellipsis-text">
+										<div class="centered-text" data-bind="text: $parent.getTableData($data)"></div>
+									</div>
+									<div class="fill-half-block">
+										<div class="normal-button" data-bind="click: $parent.openTable">
+											<div class="normal-button-text" data-bind="text: $parent.locale()._n2._n4"><!--JOIN--></div>
+										</div>
+									</div>
+								</div>
+								<!-- ko if: tablesArray().length === 0 -->
+								<div class="fill-block">
+									<div class="fill-half-block ellipsis-text">
+										<div class="centered-text" data-bind="text: $parent.locale()._D4"></div>
+									</div>
+									<div class="fill-half-block">
+
+									</div>
+								</div>
+								<!-- /ko -->
+							</td>
+						</tr>
+						<!-- /ko -->
+						<tr class="listview listview-empty scroll-load-more-button" data-bind="visible: pros.onlineProsList.hasMorePages, click: pros.onlineProsList.growPage.bind(pros.onlineProsList)">
+							<td colspan="3" data-bind="text: locale()._z5._M6"></td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+		</div>
+		<div class="scroller-bar-wrapper"><div class="scroller-bar-scroller"></div></div>
+	</div>
+
+	{{html _footer}}
+	{{html _leaderboard}}
+	{{html _blockad}}
+</div>

@@ -1,0 +1,91 @@
+<div id="options" class="options-dialog">
+	<div class="settings-dialog">
+		<div class="settingsMainBlock">
+			<div class="settingsHeader">
+				<div class="settingsTitle">
+
+				</div>
+			</div>
+
+			<div class="SwitchesWrapper">
+
+				<div class="settingSwitches">
+
+					<!-- ko if: lobby.getGameType() == 83-->
+
+					<div class="settingSwitchWrapper" data-bind="click: playerOptions.toggleAutoAnte, css: {'settingsChecked': playerOptions.isGlobalAutoAnte()}">
+						<div class="switchLabel" data-bind="text: locale()._66._U1"></div>
+						<div id="secondSwitch" class="settingSwitch">
+							<div class="settingSwitchScrollBox"></div>
+							<div class="settingSwitchScrollBar"><div class="switchStateCaption">
+								<span class="settingOn" data-bind="text: locale()._66._Q3"></span>
+								<span class="settingOff" data-bind="text: locale()._66._D8"></span>
+							</div></div>
+
+						</div>
+					</div>
+					<!-- /ko-->
+
+					<!-- ko if: options.isAutoMuckVisible() -->
+					<div class="settingSwitchWrapper" data-bind="click: playerOptions.toggleAutoMuck, css: {'settingsChecked': playerOptions.isGlobalAutoMuck()}">
+						<div class="switchLabel" data-bind="text: locale()._66._p0"></div>
+						<div id="thirdSwitch" class="settingSwitch">
+							<div class="settingSwitchScrollBox"></div>
+							<div class="settingSwitchScrollBar"><div class="switchStateCaption">
+								<span class="settingOn" data-bind="text: locale()._66._Q3"></span>
+								<span class="settingOff" data-bind="text: locale()._66._D8"></span>
+							</div></div>
+
+						</div>
+					</div>
+					<!-- /ko -->
+
+					<!-- ko if: options.isAutoBlindVisible() -->
+					<div class="settingSwitchWrapper" data-bind="click: playerOptions.toggleAutoBlind, css: {'settingsChecked': playerOptions.isGlobalAutoBlind()}">
+						<div class="switchLabel" data-bind="text: locale()._66._v6"></div>
+						<div id="Switch5" class="settingSwitch">
+							<div class="settingSwitchScrollBox"></div>
+							<div class="settingSwitchScrollBar"><div class="switchStateCaption">
+								<span class="settingOn" data-bind="text: locale()._66._Q3"></span>
+								<span class="settingOff" data-bind="text: locale()._66._D8"></span>
+							</div></div>
+
+						</div>
+					</div>
+					<!-- /ko-->
+
+					<div class="settingSwitchWrapper" data-bind="click: playerOptions.toggleSound, css: {'settingsChecked': playerOptions.isSoundEnabled()}">
+						<div class="switchLabel" data-bind="text: locale()._66._01"></div>
+						<div id="Switch4" class="settingSwitch">
+							<div class="settingSwitchScrollBox"></div>
+							<div class="settingSwitchScrollBar"><div class="switchStateCaption">
+								<span class="settingOn" data-bind="text: locale()._66._Q3"></span>
+								<span class="settingOff" data-bind="text: locale()._66._D8"></span>
+
+							</div></div>
+
+						</div>
+					</div>
+
+					<div class="settingSwitchWrapper language-label" data-bind="click: options.openLanguageSettingsDialog, css: {'settingsChecked': playerOptions.isSoundEnabled()}">
+						<div class="switchLabel" data-bind="text: locale()._e9._A6"></div>
+						<div class="country-flag"></div>
+					</div>
+
+					<div class="settingSwitchWrapper logout-button" data-bind="click: options.logout" >
+						<div class="switchLabel switchLabelLogout" data-bind="text: locale()._66._v3"></div>
+					</div>
+
+
+				</div>
+
+			</div>
+		</div>
+		<div class="settingsFooter">
+			<div class="option-back-button" data-bind="touch: options.closeOptionsDialog">
+				<div class="back-button-icon"></div>
+				<div class="back-button-text" data-bind="text: locale()._f1._n7"></div>
+			</div>
+		</div>
+	</div>
+</div>

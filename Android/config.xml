@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.enterra.android.apps.poker.client.vegas" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>HelloWorld</name>
+    <description>
+        A sample Apache Cordova application that responds to the deviceready event.
+    </description>
+    <author email="dev@cordova.apache.org" href="http://cordova.io">
+        Apache Cordova Team
+    </author>
+    <content src="index.html" />
+    <plugin name="cordova-plugin-whitelist" spec="1" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+    <plugin name="cordova-plugin-appsflyer-sdk" spec="^4.2.19" />
+    <plugin name="cordova-plugin-device" spec="^1.1.6" />
+    <plugin name="cordova-plugin-file" spec="^4.3.3" />
+    <plugin name="cordova-plugin-globalization" spec="^1.0.7" />
+    <plugin name="cordova-plugin-inappbrowser" spec="^1.7.1" />
+    <plugin name="cordova-plugin-media" spec="^3.0.1" />
+    <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
+    <plugin name="cc.fovea.cordova.purchase" spec="^6.1.2">
+        <variable name="BILLING_KEY" value="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnQmFycnACyiGvx2JDeS0xiR0HeSNQZbdseQtp2IB2gu8I6dOmi7xIETMWof+p/yGNsxPRkUIijSamhTW/xiluz8QdrXFJ7ZC0tkhlx5j78usy+1L06ovL+G+YKa0drTVNlKQ7rcZBfPEJuENenziLjwELtkUMeYMjM4qAN1rPQ2dtFRjISUS9qJ08FIfc7/4wqA2asFkUl2pn7oO1oW8xDgEJLxaPkRzuRmHyp3PJG8H8Au3ij9i8pEK2AZZJj5Bh+3EFZah0RNUYdgK4P+xYVNAaLCJUD88icQ/9OExTlcp++xfVWT2OlqQwkNG1VTpigcdL952TWh8KRBTpNP9qQIDAQAB" />
+    </plugin>
+    <engine name="android" spec="~6.2.3" />
+    <plugin name="cordova-plugin-keyboard" spec="^1.2.0" />
+    <plugin name="cordova-plugin-native-keyboard" spec="^1.5.0">
+        <variable name="LICENSE" value="TRIAL" />
+    </plugin>
+    <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
+</widget>

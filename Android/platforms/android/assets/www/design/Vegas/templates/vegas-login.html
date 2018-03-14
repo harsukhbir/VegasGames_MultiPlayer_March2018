@@ -1,0 +1,89 @@
+<div data-role="page" id="vegas-login" data-theme="a" data-title="VegasPoker" data-url="vegas-login" class="data-role-page">
+	<div id="login-page-content" class="page-content" data-role="content">
+
+		<div class="page-header">
+			<div class="table-cell header-block-back">
+
+				<div data-bind="touch: menu.back" class="back-button lobby-back-button row-left-block">
+					<div class="header-block-back-button table">
+						<div class="table-cell header-block-back-cell">
+							<div data-bind="text: locale()._f1._51"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="table-cell page-header-column ">
+				<div class="header-block-title">
+					<div class="header-block-title-text" data-bind="text: locale()._A8._B"></div>
+				</div>
+			</div>
+
+			<div class="table-cell">&nbsp;</div>
+
+		</div>
+
+		<div class="scroll-wrapper-adaptive scroll-wrapper-login">
+				<div class='block-all-fild'>
+
+					<form id="form-sign-in" data-bind="submit: account.login.bind($data.account), disable: account.isLogining">
+						<div class="form-block">
+							<div class="white-form login-white-form">
+								<div class="row-form login-row-form">
+									<div class="input-row-form login-input-row-form">
+										<input type="text" name="name" id="login-name" required pattern="^[\wА-Яа-я\.\-\'\`\s\,\(\)\+]{4,16}$" value="" class="input-white required" data-bind="attr: {placeholder: locale()._A8._v7}" />
+									</div>
+								</div>
+								<div class="row-form login-row-form">
+									<div class="input-row-form login-input-row-form">
+										<input type="password" name="password" id="login-password" required pattern="^[^\s]{5,20}$" value="" class="input-white required" data-bind="attr: {placeholder: locale()._A8._y0}" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<br class='clear'>
+						<!-- <div id="remember-me-block"></div> -->
+
+						<div class='button-and-messages'>
+							<div id="button-forgot-password">
+								<div id="forgot-password" class="cl password">
+								</div>
+							</div>		
+							<div class='button-block'>
+								<button id="sign-in-button" data-bind="text: locale()._A8._E" type="submit" class="green-button padding-button login-green-button" data-role="none">
+									<!--Sign in-->
+								</button>
+							</div>		
+							<div class='messages-block'>
+									<div id="login-message-error" class="error-message">&nbsp;</div>
+									<div id="login-message" class="ok-message"></div>
+							</div>
+						</div>
+						<br class='clear'>
+					</form>
+					
+				</div>
+		</div>
+
+		<div class="confirm-popup-back" data-bind="visible: account.isLogining">
+			<div class="popup_background"></div>
+			<div class="info-form-popup-back">
+				<table rows="1" cols="1" width="100%" height="100%">
+					<tr>
+						<td align="center" valign="center">
+							<table class="loading-state">
+								<tr data-bind="foreach: account.loginigIndicator.elements">
+									<td data-bind="css: {full: $index() <= $parent.account.loginigIndicator.state()}"></td>
+								</tr>
+							</table>
+							<div data-bind="text: account.loginigIndicator.status"></div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	{{html _leaderboard}}
+	{{html _blockad}}
+</div>

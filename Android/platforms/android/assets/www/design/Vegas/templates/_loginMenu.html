@@ -1,0 +1,29 @@
+<div class='menu-toolbar'>
+	<div class="header">
+		<div class="logo"></div>
+		<div class="custom-bar-block-tables">
+			<div class="toolbar-bars custom-bar clickable button-inventory" data-bind="touch: menu.openPage.bind($data, 'login'),css: {'active': menu.activePage() == 'login'}">
+				<div class="sub-custom-bar">
+
+					<div class="login">
+						<div class="profile-menu-text" data-bind="text: locale()._P2._E"></div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="toolbar-bars custom-bar clickable button-recent" data-bind="click: menu.openPage.bind($data, 'registration'),css: {'active': menu.activePage() == 'registration'}">
+				<div class="sub-custom-bar">
+
+					<div class="sing-up" >
+						<div class="profile-menu-text" data-bind="text: locale()._P2._I6"></div>
+					</div>
+
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<div class="toolbar-bars right-button-scroll-bar"></div>
+	<div class="toolbar-bars right-bar"></div>
+</div>

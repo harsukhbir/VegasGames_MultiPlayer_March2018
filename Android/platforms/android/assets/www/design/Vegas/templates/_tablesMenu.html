@@ -1,0 +1,39 @@
+<div class='menu-toolbar'>
+	<div class="header">
+		<div class="logo"></div>
+		<div class="custom-bar-block-tables">
+			<div class="toolbar-bars custom-bar clickable button-achievements" data-bind="click: menu.openPage.bind($data, 'lobby-tables-list')">
+				<div class="sub-custom-bar">
+
+					<div class="show-table">
+						<div class="profile-menu-text-lobby show-table-text" data-bind="text: locale()._s2._k2"></div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="toolbar-bars custom-bar clickable button-inventory" data-bind="touch: tablesSnap.canAdd()? lobbyTablesFilters.playNow.bind($data.lobbyTablesFilters): menu.openPage.bind($data, 'tables')">
+				<div class="sub-custom-bar">
+
+					<div class="play-now">
+						<div class="profile-menu-text-lobby" data-bind="text: locale()._s2._I2"></div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="toolbar-bars custom-bar clickable button-recent" data-bind="touch: menu.back">
+				<div class="sub-custom-bar">
+
+					<div class="go-back">
+						<div class="profile-menu-text-lobby" data-bind="text: locale()._s2._W1"></div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div class="toolbar-bars right-button-scroll-bar"></div>
+	<div class="toolbar-bars right-bar"></div>
+</div>

@@ -1,0 +1,102 @@
+<div data-role="page" id="tournament-players" data-theme="a" data-title="VegasPoker" data-url="tournament-players" onclick="return false;" class="data-role-page">
+	<div data-role="content" id="tournament-page-content" class="page-content">
+
+        <div class="page-header">
+			<div data-bind="touch: menu.back" class="back-button lobby-back-button row-left-block">
+				<div class="header-block-back-button table">
+					<div class="table-cell header-block-back-cell">
+						<div data-bind="text: locale()._f1._51"></div>
+					</div>
+				</div>
+			</div>
+            <div class="page-header-column ">
+                <div class="header-block-title">
+                    <div class="header-block-title-text" data-bind="text: tournament.details().name"></div>
+                </div>
+            </div>
+            <div class="header-refresh-container">
+                <div class="header-refresh-button scroll-refresh-button"></div>
+            </div>
+			<button class="refresh-button lobby-refresh-button scroll-refresh-button" data-role="none" type="button" data-bind=""></button>
+        </div>
+
+        <div class='menu-toolbar tournament-toolbar clickable'>
+            <div class="toolbar-bars left-bar"></div>
+            <div class="toolbar-bars left-button-scroll-bar"></div>
+            <div class="toolbar-bars top-button-scroll-bar">
+                <div class="custom-bar-block">
+                    <div class="toolbar-bars custom-bar button-info" data-bind="click: menu.openPage.bind($data, {page: 'tournament'})">
+                        <div class="sub-custom-bar">
+                            <div class="toolbar-bars sub-bars left-custom-bar"></div>
+                            <div class="toolbar-bars sub-bars top-custom-bar">
+                                <div data-bind="text: locale()._c6._09"></div>
+                            </div>
+                            <div class="toolbar-bars sub-bars right-custom-bar"></div>
+                        </div>
+                    </div>
+                    <div class="toolbar-bars custom-bar button-tables" data-bind="click: menu.openPage.bind($data, {page: 'tournament-tables'})">
+                        <div class="sub-custom-bar">
+                            <div class="toolbar-bars sub-bars left-custom-bar"></div>
+                            <div class="toolbar-bars sub-bars top-custom-bar">
+                                <div data-bind="text: locale()._c6._O2"></div>
+                            </div>
+                            <div class="toolbar-bars sub-bars right-custom-bar"></div>
+                        </div>
+                    </div>
+
+                    <div class="toolbar-bars custom-bar button-players open-bar" data-bind="click: menu.openPage.bind($data, {page: 'tournament-players'})">
+                        <div class="sub-custom-bar">
+                            <div class="toolbar-bars sub-bars left-custom-bar"></div>
+                            <div class="toolbar-bars sub-bars top-custom-bar">
+                                <div  data-bind="text: locale()._c6._f0"></div>
+                            </div>
+                            <div class="toolbar-bars sub-bars right-custom-bar"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="toolbar-bars right-button-scroll-bar"></div>
+            <div class="toolbar-bars right-bar"></div>
+        </div>
+
+        <div class="t-table-tournament-list t-table">
+
+            <div class="t-table-row-tournament-list-first t-table-row-first t-table-row"  >
+                <div class="t-table-tournament-list-column1 t-table-column"><div data-bind="text: locale()._c6._p3"><!-- --></div></div>
+                <div class="t-table-tournament-list-column2 t-table-column"><div data-bind="text: locale()._c6._M5"><!-- --></div></div>
+                <div class="t-table-tournament-list-column3 t-table-column"><div data-bind="text: locale()._c6._L2"><!-- --></div></div>
+                <div class="t-table-tournament-list-column-scroll t-table-column"><div data-bind=""><!--Scroll --></div></div>
+            </div>
+            <!-- empty -->
+
+            <div class="t-table-row-tournament-list t-table-row t-table-tournament-list-column-messages" data-bind="visible: !tournament.playersList.hasElements()">
+                <div class="t-table-column" data-bind="text: locale()._Z6._m3"></div>
+            </div>
+
+            <div id="scroll-wrapper" class="tournament-scroll-wrapper scroll-wrapper-adaptive" data-bind="visible: tournament.playersList.hasElements">
+                <div id="scroll-wrapper-child" class="scroll-wrapper-child">
+                        <!-- ko foreach: tournament.playersList.elements -->
+                        <div class="t-table-row-tournament-list t-table-row">
+                            <div class="t-table-tournament-list-column1 t-table-column"><div data-bind="text: $parent.tournament.getPlayerDisplayName($data)"><!-- name --></div></div>
+                            <div class="t-table-tournament-list-column2 t-table-column"><div data-bind="text: $parent.tournament.getPlayerPlace($data)"><!--Stakes --></div></div>
+                            <div class="t-table-tournament-list-column3 t-table-column"><div data-bind="text: $parent.tournament.getPlayerCash($data)"><!--Pot --></div></div>
+                            <div class="t-table-tournament-list-column-scroll t-table-column"><div data-bind=""><!--Scroll --></div></div>
+                        </div>
+                        <!-- /ko -->
+
+                        <div class="t-table-row-tournament-list t-table-row clickable listview listview-empty show-more" data-bind="visible: tournament.playersList.hasMorePages, click: tournament.playersList.growPage.bind(tournament.playersList)" >
+                            <div data-bind="text: locale()._z5._M6"></div>
+                        </div>
+                </div>
+				<div class="scroller-bar-wrapper"><div class="scroller-bar-scroller"></div></div>
+            </div>
+
+        </div>
+
+	</div>
+
+	{{html _footer}}
+	{{html _leaderboard}}
+	{{html _blockad}}
+</div>

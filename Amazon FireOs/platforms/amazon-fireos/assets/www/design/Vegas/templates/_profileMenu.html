@@ -1,0 +1,41 @@
+<div class='menu-toolbar'>
+	<div class="header">
+		<div class="logo"></div>
+		<div class="custom-bar-block">
+			<div class="toolbar-bars custom-bar clickable button-overview" data-bind="css: {'active': menu.activePage() == 'profile-overview'},touch: menu.openPage.bind($data, 'profile-overview')">
+				<div class="sub-custom-bar">
+					<div class="overview">
+						<div class="profile-menu-text" data-bind="text: locale()._u2._03"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="toolbar-bars custom-bar clickable button-achievements" data-bind=" css: {'active': menu.activePage() == 'profile-achievements'},touch: menu.openPage.bind($data, 'profile-achievements')">
+				<div class="sub-custom-bar">
+					<div class="achievements">
+						<div class="profile-menu-text achiev-text" data-bind="text: locale()._u2._c4"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="toolbar-bars custom-bar clickable button-inventory" data-bind="css: {'active': menu.activePage() == 'profile-inventory'},touch: menu.openPage.bind($data, 'profile-inventory')">
+				<div class="sub-custom-bar">
+					<div class="inventory ">
+						<div class="profile-menu-text" data-bind="text: locale()._u2._S5"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="toolbar-bars custom-bar clickable button-back" data-bind="touch: menu.back">
+				<div class="sub-custom-bar">
+					<div class="go-back">
+						<div class="profile-menu-text" data-bind="text: locale()._f1._n7"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div class="toolbar-bars right-button-scroll-bar"></div>
+	<div class="toolbar-bars right-bar"></div>
+</div>

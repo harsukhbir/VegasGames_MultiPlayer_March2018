@@ -1,0 +1,52 @@
+<div id="feedback" class="feedback">
+	<div class="feedback-dialog-popup">
+		<div class="external-dialog-header-close-button">
+			<div class="external-settings-close-image" data-bind="touch: feedback.closeFeedbackDialog">
+			</div>
+		</div>
+		<div class="feedback-form-background">
+			<div class="feedback-form-header" data-bind="text: locale()._K7._z4">
+						<!--To report problems, make suggestions or to give feedback-->
+			</div>
+			<div class="feedback-form-email">
+				<div class="feedback-form-email-label" data-bind="text: locale()._K7._Y0">
+					<!--e-mail address-->
+				</div>
+				<div class="feedback-form-email-input">
+					<input type="text" class="feedback-email" id="feedback-email" pattern="[^@]+@[^@]+" required maxlength="100">
+				</div>
+			</div>
+			<div class="feedback-form-comments">
+				<div class="feedback-form-comments-label" data-bind="text: locale()._K7._n8">
+					<!--comments-->
+				</div>
+				<div class="feedback-form-comments-input">
+					<textarea class="feedback-comments" id="feedback-comments" required maxlength="200"></textarea>
+				</div>
+
+
+			</div>
+		</div>
+		<div class="feedback-form-checkbox">
+			<div class="feedback-form-checkbox-block">
+				<div class="feedback-form-checkbox-box">
+					<input type="checkbox" class="feedback-checkbox" id="feedback-checkbox">
+				</div>
+				<div class="feedback-form-checkbox-label" data-bind="text: locale()._K7._27, click: feedback.toggleFeedbackCheckbox">
+					<!--I agree-->
+				</div>
+			</div>
+		</div>
+		<div class="feedback-form-submit">
+			<div class="feedback-form-submit-button" data-bind="click: feedback.sendFeedbackMessage">
+				<div class="table">
+					<div class="table-cell" data-bind="text: locale()._K7._92">
+						<!--submit-->
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+

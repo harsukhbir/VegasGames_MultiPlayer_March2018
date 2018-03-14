@@ -1,0 +1,164 @@
+<div data-role="page" id="mytable" data-theme="a" data-title="VegasPoker" data-url="mytable" onclick="return false;" class="data-role-page">
+	<div id="lobby-page-content" class="page-content" data-role="content">
+		<div class="top-toolbar top-toolbar-adaptive">
+			<div class="top-toolbar-tab-container">
+				<div class="first-tab">
+					<div data-bind="text: locale()._s2._C">
+						<!--Tables-->
+					</div>
+				</div>
+				<div class="second-tab clickable" data-bind="click: menu.openPage.bind($data, 'lobby-tournaments-filters')">
+					<div data-bind="text: locale()._s2._10">
+						<!--Tournaments-->
+					</div>
+				</div>
+			</div>
+		</div>
+			<div data-bind="click: menu.openPage.bind($data,{page: 'mytable', transition: 'slide'})" class="toolbar-button clickable">
+				button
+			</div>
+		<div id="scroll-wrapper" class="lobby-tables-scroll-wrapper scroll-wrapper-adaptive">
+			<div id="scroll-wrapper-child" class="scroll-wrapper-child">
+				<div id="scroller" class="blue-scroller">
+				<div class="scroll-table-container">
+				<table class="scroll-table">
+					<tbody>
+						<tr>
+							<td>
+								<div class="td-cell clickable" data-bind="click: menu.openPage.bind($data, {page: 'lobby-tables-filter-game-type', transition: 'slide'})">
+									<table>
+										<tr>
+											<td class='td-left' data-bind="text: locale()._s2._w0">
+												<!--Game type-->
+											</td>
+											<td class='td-right'>
+												<div data-bind="text: lobbyTablesFilters.names.gameType">
+													<!--Hold'em-->
+												</div>
+											</td>
+											<td class='td-arrow'>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="td-cell clickable" data-bind="click: menu.openPage.bind($data, {page: 'lobby-tables-filter-money-type', transition: 'slide'})">
+									<table>
+										<tr>
+											<td class='td-left' data-bind="text: locale()._s2._Z1">
+												<!--Currency-->
+											</td>
+											<td class='td-right'>
+												<div data-bind="text: lobbyTablesFilters.names.moneyType">
+													<!--Play M-->
+												</div>
+											</td>
+											<td class='td-arrow'>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="td-cell clickable" data-bind="click: menu.openPage.bind($data, {page: 'lobby-tables-filter-stakes', transition: 'slide'})">
+									<table>
+										<tr>
+											<td class='td-left' data-bind="text: locale()._s2._T6">
+												<!--Stakes-->
+											</td>
+											<td class='td-right'>
+												<div data-bind="text: lobbyTablesFilters.names.baseStake">
+													<!--10/20-->
+												</div>
+											</td>
+											<td class='td-arrow'>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="td-cell clickable" data-bind="click: menu.openPage.bind($data, {page: 'lobby-tables-filter-pot-type', transition: 'slide'})">
+									<table>
+										<tr>
+											<td class='td-left' data-bind="text: locale()._s2._i2">
+												<!--Pot-->
+											</td>
+											<td class='td-right'>
+												<div data-bind="text: lobbyTablesFilters.names.potType">
+													<!--NL-->
+												</div>
+											</td>
+											<td class='td-arrow'>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="td-cell clickable" data-bind="click: menu.openPage.bind($data, {page: 'lobby-tables-filter-buyin', transition: 'slide'})">
+									<table>
+										<tr>
+											<td class='td-left' data-bind="text: locale()._s2._64">
+												<!--BuyIn-->
+											</td>
+											<td class='td-right'>
+												<div data-bind="text: lobbyTablesFilters.names.minCash">
+													<!--200-->
+												</div>
+											</td>
+											<td class='td-arrow'>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="td-cell clickable" data-bind="click: menu.openPage.bind($data, {page: 'lobby-tables-filter-players', transition: 'slide'})">
+									<table>
+										<tr>
+											<td class='td-left' data-bind="text: locale()._s2._b1">
+												<!--Players-->
+											</td>
+											<td class='td-right'>
+												<div data-bind="text: lobbyTablesFilters.names.maxPlayer">
+													<!--10-->
+												</div>
+											</td>
+											<td class='td-arrow'>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				</div>
+			</div>
+			</div>
+		</div>
+
+		<div id="lobby-buttons-row">
+			<div id="lobby-buttons">
+				<button data-role="none" type="button" class="red-button" data-bind="text: locale()._s2._I2, click: lobbyTablesFilters.playNow.bind($data.lobbyTablesFilters)"></button>
+				<button data-role="none" type="button" class="blue-button" data-bind="text: locale()._s2._k2, click: menu.openPage.bind($data, 'lobby-tables-list')"></button>
+			</div>
+		</div>
+	</div>
+
+	{{html _footer}}
+	{{html _leaderboard}}
+	{{html _blockad}}
+</div>

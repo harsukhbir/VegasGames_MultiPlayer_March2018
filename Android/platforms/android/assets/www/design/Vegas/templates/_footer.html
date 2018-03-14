@@ -1,0 +1,46 @@
+<div data-role="footer" data-id="footer" data-position="fixed" id="footer" class="footer">
+	<div data-bind="touch: menu.openPage.bind($data, 'home'), visible: !account.isLogined(), css: {'toolbar-button-active': menu.activeMenuItem() === 'home' && !feedback.isFeedbackDialogOpenned()}"
+	 class="toolbar-button clickable">
+		<div class="toolbar-button-div menu-home">
+		</div>
+	</div>
+	<div data-bind="touch: menu.openPage.bind($data, 'lobby'), visible: account.isLogined, css: {'toolbar-button-active': menu.activeMenuItem() === 'lobby' && !menu.isInternalSearchVisible() && !feedback.isFeedbackDialogOpenned()}"
+	 class="toolbar-button clickable">
+		<div class="toolbar-button-div menu-lobby">
+		</div>
+	</div>
+	<!--
+	<div data-bind="touch: menu.openPage.bind($data, 'tables'), visible: account.isLogined" class="toolbar-button clickable">
+		<div class="toolbar-button-div menu-table">
+		</div>
+	</div>
+	-->
+
+	<!--  origional
+			<div data-bind="touch: menu.openPage.bind($data, 'profile-overview'), visible: account.isLogined, css: {'toolbar-button-active': menu.activeMenuItem() === 'profile' && !feedback.isFeedbackDialogOpenned()}" class="toolbar-button clickable">
+		<div class="toolbar-button-div menu-profile">
+		</div>
+	</div>
+	 -->
+	<div data-bind="touch: menu.openPage.bind($data, 'profile-overview'), visible: account.isLogined, css: {'toolbar-button-active': menu.activeMenuItem() === 'profile' && !feedback.isFeedbackDialogOpenned()}" class="toolbar-button clickable">
+		<div class="toolbar-button-div menu-profile">
+		</div>
+	</div>
+
+	<!--<div data-bind="touch: menu.openPage.bind($data, 'tables-search'), visible: account.isLogined, css: {'toolbar-button-active': menu.activeMenuItem() === 'tables-search' && !feedback.isFeedbackDialogOpenned()}" class="toolbar-button clickable">
+		<div class="toolbar-button-div menu-search">
+		</div>
+	</div>-->
+
+	<!--ko if: typeof options !== 'undefined'-->
+	<div data-bind="touch: options.openOptionsDialog" class="toolbar-button clickable">
+		<div class="toolbar-button-div menu-settings">
+		</div>
+	</div>
+	<!--/ko-->
+	<div data-bind="touch: menu.openPage.bind($data, 'game-type'), visible: account.isLogined" class="toolbar-button clickable">
+		<div class="toolbar-button-div menu-games">
+		</div>
+	</div>
+
+</div>

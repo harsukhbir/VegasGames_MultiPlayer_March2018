@@ -1,0 +1,75 @@
+<div data-role="page" id="social-avatars" data-theme="a" data-title="VegasPoker" data-url="social-avatars" onclick="return false;" class="data-role-page">
+	<div id="profile-change-avatar-page-content" data-role="content" class="page-content">
+		<div class="page-header">
+			<button class="lobby-back-button" data-role="none" type="button" data-bind="touch: menu.openPage.bind($data, 'profile-overview'), text: locale()._f1._51">
+			</button>
+			<div class="lobby-header-title">
+				<div class="lobby-header-title-text" data-bind="text: locale()._e9._59"></div>
+			</div>
+		</div>
+		<div class="tab-menu-container profile-menu-container">
+			<div class="tab-menu-container-item tab-menu-container-item-selected">
+				<div class="tab-menu-item">
+					<div class="tab-menu-item-text" data-bind="text: locale()._e9._d">
+					</div>
+				</div>
+			</div>
+			<div class="tab-menu-container-item" data-bind="touch: menu.openPage.bind($data, 'profile-status')">
+				<div class="tab-menu-item">
+					<div class="tab-menu-item-text" data-bind="text: locale()._e9._B1">
+					</div>
+				</div>
+			</div>
+			<div class="tab-menu-container-item" data-bind="touch: menu.openPage.bind($data, 'profile-recent')">
+				<div class="tab-menu-item">
+					<div class="tab-menu-item-text" data-bind="text: locale()._e9._W5">
+					</div>
+				</div>
+			</div>
+			<div class="tab-menu-container-item" data-bind="touch: menu.openPage.bind($data, 'profile-inventory')">
+				<div class="tab-menu-item">
+					<div class="tab-menu-item-text" data-bind="text: locale()._e9._R3">
+					</div>
+				</div>
+			</div>
+			<div class="tab-menu-container-item" data-bind="touch: menu.openPage.bind($data, 'profile-achievements')">
+				<div class="tab-menu-item">
+					<div class="tab-menu-item-text" data-bind="text: locale()._e9._r1">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="profile-change-avatar-container">
+			<div class="profile-change-avatar-side">
+				<div class="ivey-arrow ivey-arrow-left" data-bind="visible: socialAvatars.availableAvatarsList.pages() > 1, touch: socialAvatars.availableAvatarsList.reducePage.bind(socialAvatars.availableAvatarsList)"></div>
+			</div>
+			<div class="profile-change-avatar-main">
+				<div class="profile-change-avatar-title">
+					<div class="profile-content-text" data-bind="text: locale()._k1._">
+					</div>
+				</div>
+				<div class="profile-change-avatar-image-container">
+					<div class="profile-change-avatar-image-content" data-bind="foreach: socialAvatars.availableAvatarsList.elements">
+						<div class="profile-overview-avatar-image-image">
+							<img data-bind="attr: {src: $data.resource.normal}">
+						</div>
+					</div>
+				</div>
+				<div class="profile-change-avatar-item">
+					<div class="profile-content-text" data-bind="visible: (socialAvatars.availableAvatarsList.length() > 0), text: socialAvatars.availableAvatarsList.pages() + '/' + socialAvatars.availableAvatarsList.length()"></div>
+				</div>
+				<div class="profile-change-avatar-buttons">
+					<button id="profile-change-avatar-apply-button" class="ivey-button" data-role="none" data-bind="visible: (socialAvatars.availableAvatarsList.length() > 0), text: locale()._k1._d2, touch: socialAvatars.confirmSelectedAvatar.bind(socialAvatars, $data), disable: avatars.isWaiting"></button>
+				</div>
+			</div>
+			<div class="profile-change-avatar-side">
+				<div class="ivey-arrow ivey-arrow-right" data-bind="visible: socialAvatars.availableAvatarsList.hasMorePages, touch: socialAvatars.availableAvatarsList.growPage.bind(socialAvatars.availableAvatarsList)"></div>
+			</div>
+		</div>
+
+	</div>
+	{{html _footer}}
+	{{html _leaderboard}}
+	{{html _blockad}}
+</div>

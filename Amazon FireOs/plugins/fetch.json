@@ -1,0 +1,84 @@
+{
+  "com.appsflyer.phonegap.plugins.appsflyer": {
+    "source": {
+      "type": "git",
+      "url": "https://github.com/AppsFlyerSDK/PhoneGap.git",
+      "subdir": "."
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-device": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-device"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-inappbrowser": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-inappbrowser@1.5.0"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "com.red_folder.phonegap.plugin.backgroundservice": {
+    "source": {
+      "type": "git",
+      "url": "https://github.com/Red-Folder/bgs-core.git",
+      "subdir": "."
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "com.matd.coolplugin": {
+    "source": {
+      "type": "local",
+      "path": "/Users/kaushaljsathwara/Documents/Z_Demo/HelloToast/CoolPlugin"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-compat": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-compat"
+    },
+    "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-plugin-globalization": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-globalization"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-splashscreen": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-splashscreen@4.0.2"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cc.fovea.cordova.purchase": {
+    "source": {
+      "type": "registry",
+      "id": "cc.fovea.cordova.purchase"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-ionic-keyboard": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-ionic-keyboard"
+    },
+    "is_top_level": true,
+    "variables": {}
+  }
+}

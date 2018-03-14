@@ -1,0 +1,76 @@
+<div data-role="page" id="lobby-tables-filters" data-theme="a" data-title="VegasPoker" data-url="lobby-tables-filters" onclick="return false;" class="data-role-page">
+	<div id="lobby-tables-filters-page-content" class="page-content" data-role="content">
+
+
+		{{html _tablesMenu}}
+
+		<div class="lobby-scroll-wrapper ">
+					<div id="lobby-tables-filter-menu" class="lobby-filter-menu-list blue-table">
+
+						<div class="filter-menu-item lobby-tables-filter-menu-item blue-table-row stakes-filter clickable"  data-bind="touch: menu.openPage.bind($data, 'lobby-tables-filter-stakes')">
+							<div class="filter-menu-item-label blue-table-column" data-bind="text: locale()._s2._T6"></div>
+							<div class="filter-menu-item-value blue-table-column" data-bind="text: lobbyTablesFilters.names.baseStake"></div>
+							<div class="filter-menu-item-arrow blue-table-column"></div>
+						</div>
+
+						<div class="filter-menu-item lobby-tables-filter-menu-item blue-table-row bets-filter clickable"  data-bind="touch: menu.openPage.bind($data, 'lobby-tables-filter-stakes')">
+							<div class="filter-menu-item-label blue-table-column" data-bind="text: locale()._s2._e"></div>
+							<div class="filter-menu-item-value blue-table-column" data-bind="text: lobbyTablesFilters.names.baseStake"></div>
+							<div class="filter-menu-item-arrow blue-table-column"></div>
+						</div>
+
+						<div class="filter-menu-item lobby-tables-filter-menu-item blue-table-row pot-filter clickable" data-bind="touch: menu.openPage.bind($data, 'lobby-tables-filter-pot')">
+							<div class="filter-menu-item-label blue-table-column" data-bind="text: locale()._s2._i2"></div>
+							<div class="filter-menu-item-value blue-table-column" data-bind="text: lobbyTablesFilters.names.potType"></div>
+							<div class="filter-menu-item-arrow blue-table-column"></div>
+						</div>
+
+						<div class="filter-menu-item lobby-tables-filter-menu-item blue-table-row buy-in-filter clickable" data-bind="touch: menu.openPage.bind($data, 'lobby-tables-filter-buyin')">
+							<div class="filter-menu-item-label blue-table-column" data-bind="text: locale()._s2._64"></div>
+							<div class="filter-menu-item-value blue-table-column" data-bind="text: lobbyTablesFilters.names.minCash"></div>
+							<div class="filter-menu-item-arrow blue-table-column"></div>
+						</div>
+						<div class="filter-menu-item lobby-tables-filter-menu-item blue-table-row players-filter clickable" data-bind="touch: menu.openPage.bind($data, 'lobby-tables-filter-players')">
+							<div class="filter-menu-item-label blue-table-column" data-bind="text: locale()._s2._b1"></div>
+							<div class="filter-menu-item-value blue-table-column" data-bind="text: lobbyTablesFilters.names.maxPlayer"></div>
+							<div class="filter-menu-item-arrow blue-table-column"></div>
+						</div>
+						<div class="filter-menu-item lobby-tables-filter-menu-item blue-table-row players-filter-blackjack clickable" data-bind="touch: menu.openPage.bind($data, 'lobby-tables-filter-players-blackjack')">
+							<div class="filter-menu-item-label blue-table-column" data-bind="text: locale()._s2._b1"></div>
+							<div class="filter-menu-item-value blue-table-column" data-bind="text: lobbyTablesFilters.names.maxPlayerBlackJack"></div>
+							<div class="filter-menu-item-arrow blue-table-column"></div>
+						</div>
+						<div class="filter-menu-item lobby-tables-filter-menu-item blue-table-row players-filter-baccarat clickable" data-bind="touch: menu.openPage.bind($data, 'lobby-tables-filter-players-baccarat')">
+							<div class="filter-menu-item-label blue-table-column" data-bind="text: locale()._s2._b1"></div>
+							<div class="filter-menu-item-value blue-table-column" data-bind="text: lobbyTablesFilters.names.maxPlayerBaccarat"></div>
+							<div class="filter-menu-item-arrow blue-table-column"></div>
+						</div>
+						<div class="filter-menu-item lobby-tables-filter-menu-item blue-table-row speed-filter clickable" data-bind="touch: menu.openPage.bind($data, 'lobby-tables-filter-speed')">
+							<div class="filter-menu-item-label blue-table-column" data-bind="text: locale()._s2._80"></div>
+							<div class="filter-menu-item-value blue-table-column" data-bind="text: lobbyTablesFilters.names.baseTimeout"></div>
+							<div class="filter-menu-item-arrow blue-table-column"></div>
+						</div>
+
+
+					</div>
+
+				</div>
+
+		<!--<div id="lobby-tables-filters-buttons" class="lobby-button-container">
+			<div class="lobby-button-table">
+				<div class="table-cell" style='text-align: right;'>
+					<button id="play-now-button" data-role="none" type="button" class="orange-button lobby-button-play-now" data-bind="text: locale()._s2._I2, touch: tablesSnap.canAdd()? lobbyTablesFilters.playNow.bind($data.lobbyTablesFilters): menu.openPage.bind($data, 'tables')"></button>
+
+
+				</div>
+				<div class="table-cell" style='text-align: left;'>
+					<button id="show-tables-button" data-role="none" type="button" class="green-button lobby-button-show-tables" data-bind="text: locale()._s2._k2, click: menu.openPage.bind($data, 'lobby-tables-list')"></button>
+				</div>
+			</div>
+		</div>-->
+	</div>
+
+	{{html _footer}}
+	{{html _leaderboard}}
+	{{html _blockad}}
+</div>

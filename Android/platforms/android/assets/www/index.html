@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Security-Policy" content="">
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, target-densityDpi=device-dpi"
+	/>
+	<meta name="format-detection" content="telephone=no">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="cordova.js"></script>
+	<link rel="stylesheet" href="library/jquery-mobile/jquery.mobile.theme.css" />
+	<style>
+		body,
+		#index {
+			background-color: #000;
+		}
+	</style>
+</head>
+
+<body class="ui-mobile-viewport">
+	<div data-role="page" id="index" data-theme="a">
+		<div data-role="content">
+		</div>
+	</div>
+	<script src="library/lazyload.js"></script>
+	<script src="library/knockout-2.1.0.js"></script>
+	<script src="library/moment.js"></script>
+	<script src="loader.js"></script>
+	<script src="library/jquery-mobile/jquery.js"></script>
+	<script type="text/javascript">
+		document.addEventListener("deviceready", function () {
+			$.mobile.loadingMessageTextVisible = false;
+			$.mobile.hashListeningEnabled = false;
+			$.mobile.transitionFallbacks.slide = 'none';
+			$.mobile.defaultPageTransition = 'none';
+			$.mobile.linkBindingEnabled = false;
+			$.mobile.pushStateEnabled = false;
+			var args = [];
+			var devKey = 'qd4YhrYeW2v5CSAAXTSoY7';
+			args.push(devKey);
+			var userAgent = window.navigator.userAgent.toLowerCase();
+			if (/iphone|ipad|ipod/.test(userAgent)) {
+				// var appId = "734598987";            // your ios app id in app store
+				var appId = "1262392228";            // your ios app id in app store
+				args.push(appId);
+			}
+			// window.plugins.appsFlyer.initSdk(args);
+			Loader.start();
+		}, false); 
+	</script>
+	<script src="library/jquery.tmpl.js"></script>
+	<script src="library/jquery.jsonp.js"></script>
+	<script src="library/jquery-mobile/jquery.mobile.js"></script>
+	<script src="library/jquery.arctext.js"></script>
+	<script src="library/content-flow/contentflow.js"></script>
+	<script src="library/iscroll.js"></script>
+	<script src="library/DragAndDrop.js"></script>
+	<script src="library/modernizr.js"></script>
+	<script src="library/Tween.js"></script>
+	<script src="library/xml2json.js"></script>
+</body>
+
+</html>

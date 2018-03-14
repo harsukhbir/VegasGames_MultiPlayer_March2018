@@ -1,0 +1,69 @@
+<div data-role="page" id="profile-inventory" data-theme="a" data-title="VegasPoker" data-url="profile-inventory"
+     onclick="return false;" class="data-role-page">
+	<div id="profile-inventory-page-content" data-role="content" class="page-content">
+		{{html _profileMenu}}
+
+		<!-- menu -->
+
+		<div class="sub-menu">
+			<div data-role="none" class="inventory-gift-button"
+			     data-bind="click: gifts.openInventoryVirtual,css:{'active' : gifts.currentInventoryPage() == 'virtual'}">
+				<div data-bind="text: locale()._u2._D3"></div>
+				<!-- virtual--></div>
+			<div data-role="none" class="inventory-dealers-button"
+			     data-bind="click: gifts.openInventoryDealer,css:{'active' : gifts.currentInventoryPage() == 'dealer' || gifts.currentInventoryPage() == 'blackjack_dealer' || gifts.currentInventoryPage() == 'baccarat_dealer'}">
+				<div data-bind="text: locale()._u2._61"></div>
+				<!-- dealer--></div>
+			<div data-role="none" class="inventory-background-button"
+			     data-bind="click: gifts.openInventoryBackgrounds,css:{'active' : gifts.currentInventoryPage() == 'background' || gifts.currentInventoryPage() == 'blackjack_background' || gifts.currentInventoryPage() == 'baccarat_background'}">
+				<div data-bind="text: locale()._u2._l7"></div>
+				<!-- background--></div>
+		</div>
+		<div class="inv-shop-row-gifts">
+			<div class='inv-shop-left-button-item row-left-block'
+			     data-bind="touch:gifts.ownedGiftsByKind[gifts.currentInventoryPage()].reducePage">
+				<div class="arrow-inv-scroll"
+				     data-bind="css: {'left-inv-scroll-active': gifts.ownedGiftsByKind[gifts.currentInventoryPage()].pages()-1,'left-inv-scroll-unactive': gifts.ownedGiftsByKind[gifts.currentInventoryPage()].pages()-1 == 0}">
+					&nbsp;
+				</div>
+			</div>
+			<div class="inv-shop-gifts-list">
+				<!-- remove it when create dynamic background or dealer avatar-->
+
+				<!-- ko foreach: gifts.ownedGiftsByKind[gifts.currentInventoryPage()].elements() -->
+				<div class="profile-inventory-item  row-left-block clickable"
+				     data-bind="style: { backgroundImage: 'url(' + giftSrc + ')' },
+
+				     css: {'inventory-active-dealer' : $parent.gifts.currentInventoryPage() == 'dealer'},click: $parent.gifts.CheckInventoryItem">
+					<div class="profile-inventory-item-content">
+						<!-- ko if: giftSrc -->
+						<div  data-bind="css: {'profile-inventory-item-active': $data.id == $parent.gifts.selectedGiftId()}" class="profile-inventory-item-content-table-cell" data-bind="">&nbsp;</div>
+						<!-- /ko -->
+					</div>
+				</div>
+				<!-- /ko -->
+
+			</div>
+			<div class='inv-shop-right-button-item row-left-block scroll-load-more-button'>
+				<div class="arrow-inv-scroll"
+				     data-bind="touch: gifts.ownedGiftsByKind[gifts.currentInventoryPage()].growPage ,css: {'right-inv-scroll-active': gifts.ownedGiftsByKind[gifts.currentInventoryPage()].hasMorePages(),'right-inv-scroll-unactive': !gifts.ownedGiftsByKind[gifts.currentInventoryPage()].hasMorePages()},disabled: gifts.ownedGiftsByKind[gifts.currentInventoryPage()].hasMorePages()">
+					&nbsp;
+				</div>
+			</div>
+		</div>
+
+
+		<!--
+				<div class="profile-inventory-cart">
+						<!-- ko ifnot: gifts.currentOwnedGiftKind() === "avatar" && typeof pros !== 'undefined' && pros.isPro() -->
+		<!--<button id="profile-inventory-apply-button " data-role="none" class="ivey-button inventory-apply-button orange-button" data-bind="touch: gifts.useGift, enable: gifts.selectedGiftId, text: locale()._96._d2"></button>
+		<!-- /ko -->
+		<!--</div>
+		<div class="profile-cart"></div>
+	-->
+
+	</div>
+	{{html _footer}}
+	{{html _leaderboard}}
+	{{html _blockad}}
+</div>

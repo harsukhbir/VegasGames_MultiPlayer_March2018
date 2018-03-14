@@ -1,0 +1,133 @@
+<div data-role="page" id="loader" data-theme="a" data-title="VegasPoker" data-url="loader" onclick="return false;" class="data-role-page">
+
+	<style>
+		#loader{
+			width: 100%;
+			height: 100%;
+			background: url("design/Vegas/images/loader/background.jpg") 50% 50% no-repeat;
+			background-size: 100% 100%;
+			overflow: hidden;
+		}
+		.loader-background-block {
+			position: relative;
+			width: 100%;
+			height: 100%;
+		}
+		.loader-girl-block{
+			position: absolute;
+			left: 4%;
+			bottom: 0;
+			width: 40%;
+			height: 60%;
+			z-index: 2;
+			background-image: url("design/Vegas/images/loader/girl.png");
+		}
+
+		.loader-logo-block{
+			position: absolute;
+			top: 24.5%;
+			left: 30.5%;
+			width: 56.2%;
+			height: 59.5%;
+			z-index: 1;
+			background-image: url("design/Vegas/images/loader/logo.png");
+		}
+
+		.loader-beta-block{
+			position: absolute;
+			top: 67.5%;
+			left: 62.7%;
+			width: 17.2%;
+			height: 14.1%;
+			z-index: 3;
+		}
+
+		.loader-background-block,
+		.loader-girl-block,
+		.loader-logo-block,
+		.loader-beta-block{
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: bottom;
+			background-color: transparent;
+		}
+
+
+		.loader-loader-block{
+			position: absolute;
+			width: 27%;
+			height: 6.2%;
+			top: 85%;
+			left: 53%;
+			border-radius: 4px;
+			background-color: rgba(96, 50, 74, 0.9);
+			padding: 1% 0.7%;
+		}
+		#progress-bar {
+			display: table;
+			width: 96%;
+			margin-left: 2%;
+			height: 70%;
+			margin-top: 2%;
+			-moz-box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.3);
+			-webkit-box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.3);
+			box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.3);
+			border-radius: 4px;
+		}
+		.progress-item.full {
+			background: #f0821d;
+			background: -moz-linear-gradient(top, #f0821d 0%, #fc8c1f 50%, #f0821d 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f0821d), color-stop(50%,#fc8c1f), color-stop(100%,#f0821d));
+			background: -webkit-linear-gradient(top, #f0821d 0%, #fc8c1f 50%, #f0821d, 100%);
+			background: -o-linear-gradient(top, #f0821d 0%, #fc8c1f 50%, #f0821d, 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(top, #f0821d 0%, #fc8c1f 50%, #f0821d, 100%); /* IE10 */
+			background: linear-gradient(to bottom, #f0821d 0%, #fc8c1f 50%, #f0821d, 100%); /* CSS3 */
+
+		}
+		.progress-item, .progress-item-border {
+			display: table-cell;
+			width: auto;
+			height: 100%;
+			line-height: 100%;
+		}
+		.progress-item:first-child {
+			border-radius: 4px 0 0 4px;
+		}
+		.progress-item:last-child {
+			border-radius: 0 4px 4px 0;
+		}
+		.progress-item-border {
+			width: 1px;
+			background: rgba(86, 63, 87, 0.1);
+			background: -moz-linear-gradient(top, rgba(86, 63, 87, 0.1) 0%, rgba(69, 47, 71, 0.1) 50%, rgba(86, 63, 87, 0.1) 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(86, 63, 87, 0.1)), color-stop(50%, rgba(69, 47, 71, 0.1)), color-stop(100%, rgba(86, 63, 87, 0.1)));
+			background: -webkit-linear-gradient(top, rgba(86, 63, 87, 0.1) 0%, rgba(69, 47, 71, 0.1) 50%, rgba(86, 63, 87, 0.1), 100%);
+			background: -o-linear-gradient(top, rgba(86, 63, 87, 0.1) 0% 0%, rgba(69, 47, 71, 0.1) 50%, rgba(86, 63, 87, 0.1) 0%, 100%);
+			background: -ms-linear-gradient(top, rgba(86, 63, 87, 0.1) 0% 0%, rgba(69, 47, 71, 0.1) 50%, rgba(86, 63, 87, 0.1) 0%, 100%);
+			background: linear-gradient(to bottom, rgba(86, 63, 87, 0.1) 0% 0%, rgba(69, 47, 71, 0.1) 50%, rgba(86, 63, 87, 0.1) 0%, 100%);
+		}
+		.progress-item-border.full {
+			background: #f0821d;
+			background: -moz-linear-gradient(top, #f0821d 0%, rgba(240, 130, 29, 0.8) 50%, #f0821d 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f0821d), color-stop(50%, rgba(240, 130, 29, 0.8)), color-stop(100%, #f0821d));
+			background: -webkit-linear-gradient(top, #f0821d 0%, rgba(240, 130, 29, 0.8) 50%, #f0821d, 100%);
+			background: -o-linear-gradient(top, #f0821d 0%, rgba(240, 130, 29, 0.8) 50%, #f0821d, 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(top, #f0821d 0%, rgba(240, 130, 29, 0.8) 50%, #f0821d, 100%); /* IE10 */
+			background: linear-gradient(to bottom, #f0821d 0%, rgba(240, 130, 29, 0.8) 50%, #f0821d, 100%); /* CSS3 */
+		}
+	</style>
+
+	<div class="loader-background-block">
+		<div class="loader-girl-block"></div>
+		<div class="loader-logo-block"></div>
+		<div class="loader-beta-block"></div>
+		<div class="loader-loader-block">
+			<div id="progress-bar" data-bind="foreach: elements">
+				<div class="progress-item" data-bind="css: {full: $index() <= $parent.state()}">&nbsp;</div>
+				<!-- ko if: $index() + 1 < $parent.stateSteps -->
+				<div class="progress-item-border" data-bind="css: {full: $index() <= $parent.state()}"></div>
+				<!-- /ko -->
+			</div>
+		</div>
+	</div>
+</div>

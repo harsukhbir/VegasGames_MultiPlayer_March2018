@@ -1,0 +1,59 @@
+<div data-role="page" id="profile-achievements" data-theme="a" data-title="VegasPoker" data-url="profile-achievements" onclick="return false;" class="data-role-page">
+	<div id="profile-achievements-page-content" data-role="content" class="page-content">
+
+		{{html _profileMenu}}
+
+
+		<div id="scroll-wrapper" class="profile-scroll-wrapper">
+			<div id="scroll-wrapper-child" class="scroll-wrapper-child">
+
+
+					<!-- ko foreach: achievements.achievementsList.elements -->
+					<div class="profile-achievements-item row-left-block">
+						<div class="profile-achievements-item-image row-left-block">
+							<div class="profile-achievements-item-image-img">
+								<!-- ko if: achievementSrc -->
+								<div data-bind="style: { backgroundImage: 'url(' + ((isEarned)? achievementSrc : 'design/Vegas/images/profile/locked-achievement.png') + ')' }">&nbsp;</div>
+								<!-- /ko -->
+							</div>
+						</div>
+						<div class="profile-achievements-text row-left-block">
+							<div class="profile-achievements-item-title ">
+								<div class="profile-content-text profile-achievements-item-title-text ellipsis-text" data-bind="text: name">
+									<!-- Achievements -->
+								</div>
+							</div>
+							<div class="profile-achievements-item-description ">
+								<div class="profile-content-text ellipsis-text" data-bind="text: description">
+									<!-- Condition to earn -->
+								</div>
+							</div>
+							<div class="profile-achievements-item-bonus">
+								<span class="profile-achievements-item-bonus-text">Bonus</span>
+								<div class="profile-content-text" data-bind="text: getAchievementBonus($data)">
+									<!-- 100 -->
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /ko -->
+
+
+
+			</div>
+			<div class="scroller-bar-wrapper"><div class="scroller-bar-scroller"></div></div>
+
+
+		</div>
+		<!-- ko if: achievements.achievementsList.hasMorePages() && achievements.isShowLoadMore() -->
+
+		<div class="clickable load-more" data-bind="click: achievements.growAchievementsPage">
+			<div class="profile-achievements-load-more" data-bind="text: locale()._z5._M6"></div>
+		</div>
+
+		<!-- /ko -->
+	</div>
+	{{html _footer}}
+	{{html _leaderboard}}
+	{{html _blockad}}
+</div>
