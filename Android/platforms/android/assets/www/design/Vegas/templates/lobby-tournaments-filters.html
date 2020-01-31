@@ -1,0 +1,63 @@
+<div data-role="page" id="lobby-tournaments-filters" data-theme="a" data-title="VegasPoker" data-url="lobby-tournaments-filters" onclick="return false;" class="data-role-page">
+	<div id="lobby-tournaments-page-content" class="page-content" data-role="content">
+
+		<div class="page-header">
+			<div class="table-cell header-block-back">
+
+				<div data-bind="touch: menu.back" class="back-button lobby-back-button row-left-block">
+					<div class="header-block-back-button table">
+						<div class="table-cell header-block-back-cell">
+							<div data-bind="text: locale()._f1._51"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="table-cell page-header-column ">
+                <div class="header-block-title">
+                    <div class="header-block-title-text" data-bind="text: locale()._s2._10"></div>
+                </div>
+            </div>
+			<div class="table-cell"></div>
+        </div>
+
+
+        <div class="lobby-scroll-wrapper">
+
+                    <div id="lobby-tables-filter-menu" class="lobby-filter-menu-list blue-table">
+                        <div class="filter-menu-item lobby-tournaments-filter-menu-item blue-table-row clickable" data-bind="click: menu.openPage.bind($data, {page: 'lobby-tournaments-filter-tournament-type', transition: 'slide'})">
+                            <div class="filter-menu-item-label blue-table-column">
+                                <div class="scroller-first" data-bind="text: locale().__2._P4"><!--Tournament Type--></div>
+                            </div>
+                            <div class="filter-menu-item-value blue-table-column" data-bind="text: lobbyTournamentsFilters.names.tournamentType"><!--SnG--></div>
+                            <div class="filter-menu-item-arrow blue-table-column"></div>
+                        </div>
+                        <div class="filter-menu-item lobby-tournaments-filter-menu-item blue-table-row clickable" data-bind="click: menu.openPage.bind($data, {page: 'lobby-tournaments-filter-tournament-state', transition: 'slide'})">
+                            <div class="filter-menu-item-label blue-table-column" data-bind="">
+                                <div class="scroller-first" data-bind="text: locale().__2._07"><!--State--></div>
+                            </div>
+                            <div class="filter-menu-item-value blue-table-column" data-bind="text: lobbyTournamentsFilters.names.state"><!--Running--></div>
+                            <div class="filter-menu-item-arrow blue-table-column"></div>
+                        </div>
+                        <div class="filter-menu-item lobby-tournaments-filter-menu-item blue-table-row clickable" data-bind="click: menu.openPage.bind($data, {page: 'lobby-tournaments-filter-buyin', transition: 'slide'})">
+                            <div class="filter-menu-item-label blue-table-column">
+                                <div class="scroller-first" data-bind="text: locale().__2._64"><!--BuyIn--></div>
+                            </div>
+                            <div class="filter-menu-item-value blue-table-column" data-bind="text: lobbyTournamentsFilters.names.buyIn"><!--200--></div>
+                            <div class="filter-menu-item-arrow blue-table-column"></div>
+                        </div>
+                    </div>
+                    <div class="lobby-buttons-row">
+                        <button id="lobby-show-tournaments-button" data-role="none" type="button" class="green-button tournaments-green-button" data-bind="text: locale().__2._N8, click: menu.openPage.bind($data, 'lobby-tournaments-list')"></button>
+                    </div>
+
+		</div>
+
+
+	</div>
+
+	{{html _footer}}
+	{{html _leaderboard}}
+	{{html _blockad}}
+</div>

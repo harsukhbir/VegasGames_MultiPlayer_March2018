@@ -1,0 +1,37 @@
+<div id="options-language" class="options-dialog">
+	<div class="settings-dialog">
+		<div class="settingsMainBlock">
+			<div class="settingsHeader">
+				<div class="settingsTitle">
+
+				</div>
+			</div>
+			<div class="SwitchesWrapper">
+
+				<div class="settingSwitches">
+					<div id="scroll-wrapper" class="option-language-scroll-wrapper">
+						<div id="scroll-wrapper-child" class="scroll-wrapper-child">
+							<!-- ko if availableLocales != 'undefined' -->
+							<!-- ko foreach: availableLocales -->
+
+							<div class="options-dialog-item" data-bind="css: {'options-language-item-selected': $parent.currentLocale() == locale}, click: (typeof $parent.translate != 'undefined' && $parent.account.isLogined())? $parent.translate.changeLocale.bind($data, locale): $parent.changeLocale.bind($data, locale)">
+								<div class="options-dialog-item-content" data-bind="text: name"></div>
+							</div>
+							<!-- /ko -->
+							<!-- /ko -->
+
+						</div>
+						<div class="scroller-bar-wrapper"><div class="scroller-bar-scroller"></div></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="settingsFooter">
+			<div class="option-back-button" data-bind="touch: options.closeLanguageSettingsDialog">
+				<div class="back-button-icon"></div>
+				<div class="back-button-text" data-bind="text: locale()._f1._n7"></div>
+			</div>
+		</div>
+	</div>
+</div>

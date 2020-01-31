@@ -1,0 +1,62 @@
+<div id="buy-chips" class="bui-chips">
+	<div class="options-dialog-popup">
+		<div class="external-dialog-header-close-button">
+			<div class="external-settings-close-image" data-bind="touch: inAppPayment.closeBuyChips">
+			</div>
+		</div>
+		<div class="options-dialog-header">
+			<div class="options-dialog-header-text options-dialog-header-title" data-bind="text: locale()._V1._z4">
+			</div>
+		</div>
+        <div class="dividing-line"></div>
+
+
+		<div class="left-block-sroll"></div>
+		<div class="left-block-real-sroll"></div>
+		<div class="buy-chips-scroll-wrapper scroll-wrapper-adaptive">
+			<div  class="scroll-wrapper-child">
+				<div id="sroll-first"></div>
+
+
+				<!-- ko foreach: inAppPayment.itemsByType['chips_play'].elements -->
+					<div data-bind="attr: {'class': 'buy-chips-item-block chips-block-' + $index()}, click: $parent.inAppPayment.selectPaymentItem">
+						<div class="buy-chips-header-block" data-bind="text: $parent.inAppPayment.getPackageAmount($data) + ' '+$parent.locale()._V1._t5"></div>
+						<div class="buy-chips-left-block" ></div>
+						<div class="buy-chips-right-block"></div>
+						<div class="buy-chips-bottom-block" data-bind="text: $parent.inAppPayment.getPackagePrice($data)"></div>
+					</div>
+				<!-- /ko -->
+				<div class="right-block-arrows">
+					<div class="arrow-block-right-step arrow-block buy-chips-arrow-right" data-bind="style: {visibility: inAppPayment.itemsByType['chips_play'].hasMorePages()? 'visible': 'hidden'}, touch: inAppPayment.itemsByType['chips_play'].growPage.bind(inAppPayment.itemsByType['chips_play'])"></div>
+					<div class="arrow-block-left-step arrow-block buy-chips-arrow-left" data-bind="style: {visibility: inAppPayment.itemsByType['chips_play'].pages() > 1? 'visible': 'hidden'}, touch: inAppPayment.itemsByType['chips_play'].reducePage.bind(inAppPayment.itemsByType['chips_play'])"></div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="dividing-line-list"></div>
+
+		<div class="buy-chips-scroll-wrapper scroll-wrapper-adaptive buy-chips-gold">
+			<div class="scroll-wrapper-child">
+				<div id="sroll-real-first"></div>
+
+
+				<!-- ko foreach: inAppPayment.itemsByType['chips_real'].elements -->
+				<div data-bind="attr: {'class': 'buy-chips-item-block-real chips-block-' + $index()}, click: $parent.inAppPayment.selectPaymentItem">
+					<div class="buy-chips-header-block-real" data-bind="text: $parent.inAppPayment.getPackageAmount($data) + ' '+$parent.locale()._V1._g1"></div>
+					<div class="buy-chips-left-block-real" ></div>
+					<div class="buy-chips-bottom-block" data-bind="text: $parent.inAppPayment.getPackagePrice($data)"></div>
+				</div>
+				<!-- /ko -->
+				<div class="right-block-arrows">
+					<div class="arrow-block-right-step arrow-block buy-chips-arrow-right" data-bind="style: {visibility: inAppPayment.itemsByType['chips_real'].hasMorePages()? 'visible': 'hidden'}, touch: inAppPayment.itemsByType['chips_real'].growPage.bind(inAppPayment.itemsByType['chips_real'])"></div>
+					<div class="arrow-block-left-step arrow-block buy-chips-arrow-left" data-bind="style: {visibility: inAppPayment.itemsByType['chips_real'].pages() > 1? 'visible': 'hidden'}, touch: inAppPayment.itemsByType['chips_real'].reducePage.bind(inAppPayment.itemsByType['chips_real'])"></div>
+				</div>
+			</div>
+
+		</div>
+
+
+	</div>
+</div>
+

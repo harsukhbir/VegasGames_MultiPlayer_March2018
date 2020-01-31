@@ -1,0 +1,52 @@
+<div data-role="page" id="profile-filter-locale" data-theme="a" data-title="VegasPoker" data-url="profile-filter-locale" onclick="return false;" class="data-role-page">
+	<div id="profile-filter-locale-page-content" class="page-content" data-role="content">
+		<div class="top-toolbar top-toolbar-adaptive">
+			<div class="top-toolbar-tab-container">
+				<div class="top-toolbar-left">
+					<div id="back-button" data-bind="click: menu.openPage.bind($data, {page: 'profile', transition: 'slide', reverse: true})">
+						<div id="back-button-label" data-bind="text: locale()._f1._51"></div>
+					</div>
+				</div>
+				<div class="top-toolbar-right top-toolbar-padding" data-bind="text: locale()._e9._A6">
+					<!--Language-->
+				</div>
+			</div>
+		</div>
+		<div id="scroll-wrapper" class="scroll-wrapper-adaptive">
+			<div id="scroll-wrapper-child" class="scroll-wrapper-child">
+				<div id="scroller" class="blue-scroller">
+					<table class="scroll-table">
+						<tbody>
+						<tr class="clickable" data-bind="click: changeLocale.bind($data, 'en')">
+							<td>
+								<div class="scroller-li-container">
+									<div class="scroller-first" data-bind="text: availableLocales.en">
+										<!--Locale 1 -->
+									</div>
+									<div data-bind="css: {'scroller-second-check': currentLocale() == 'en'}"></div>
+								</div>
+							</td>
+						</tr>
+						<tr class="clickable" data-bind="click: changeLocale.bind($data, 'ru')">
+							<td>
+								<div class="scroller-li-container">
+									<div class="scroller-first" data-bind="text: availableLocales.ru">
+										<!--Locale 2-->
+									</div>
+									<div data-bind="css: {'scroller-second-check': currentLocale() == 'ru'}">
+									</div>
+								</div>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="scroller-bar-wrapper"><div class="scroller-bar-scroller"></div></div>
+			</div>
+		</div>
+	</div>
+
+	{{html _footer}}
+	{{html _leaderboard}}
+	{{html _blockad}}
+</div>

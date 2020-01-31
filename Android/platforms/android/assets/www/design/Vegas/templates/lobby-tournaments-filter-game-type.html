@@ -1,0 +1,46 @@
+<div data-role="page" id="lobby-tournaments-filter-game-type" data-theme="a" data-title="VegasPoker" data-url="lobby-tournaments-filter-game-type" onclick="return false;" class="data-role-page">
+	<div id="lobby-tournaments-game-type-page-content" class="page-content" data-role="content">
+
+		<div class="page-header">
+			<div class="table-cell header-block-back">
+
+				<div data-bind="touch: menu.back" class="back-button lobby-back-button row-left-block">
+					<div class="header-block-back-button table">
+						<div class="table-cell header-block-back-cell">
+							<div data-bind="text: locale()._f1._51"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="table-cell page-header-column ">
+				<div class="header-block-title">
+					<div class="header-block-title-text" data-bind="text: locale().__2._P4"></div>
+				</div>
+			</div>
+			<div class="table-cell"></div>
+		</div>
+
+		<div id="scroll-wrapper" class="lobby-scroll-wrapper scroll-wrapper-adaptive">
+			<div id="scroll-wrapper-child" class="scroll-wrapper-child">
+
+					<div id="blue-tables" class="lobby-filter-menu blue-table">
+						<!-- ko foreach: lobbyTournamentsFilters.params.gameType.$ -->
+							<div class="filter-menu-item lobby-tables-filter-menu-item blue-table-row clickable" data-bind="click: $parent.lobbyTournamentsFilters.setGameType.bind($parent.lobbyTournamentsFilters, $data)">
+								<div class="blue-table-table-filters-column1 blue-table-column" data-bind="text: $parent.locale()._B6[$parent.lobbyTournamentsFilters.params.gameType[$data]]"><!--Any --></div>
+								<div class="blue-table-table-filters-column2 blue-table-column" data-bind="css: {'scroller-second-check': $parent.lobbyTournamentsFilters.values.gameType() == $data}"></div>
+							</div>
+						<!-- /ko -->
+					</div>
+
+			</div>
+			<div class="scroller-bar-wrapper"><div class="scroller-bar-scroller"></div></div>
+		</div>
+
+	</div>
+
+	{{html _footer}}
+	{{html _leaderboard}}
+	{{html _blockad}}
+</div>

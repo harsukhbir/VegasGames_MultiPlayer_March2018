@@ -1,0 +1,61 @@
+{
+  "_from": "git+https://github.com/ionic-team/ionic-plugin-keyboard.git",
+  "_id": "ionic-plugin-keyboard@2.2.1",
+  "_inBundle": false,
+  "_location": "/ionic-plugin-keyboard",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/ionic-team/ionic-plugin-keyboard.git",
+    "rawSpec": "https://github.com/ionic-team/ionic-plugin-keyboard.git",
+    "saveSpec": "git+https://github.com/ionic-team/ionic-plugin-keyboard.git",
+    "fetchSpec": "https://github.com/ionic-team/ionic-plugin-keyboard.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/ionic-team/ionic-plugin-keyboard.git#09cc5b23f58f7c9abff20235d420264c219c3a30",
+  "_spec": "https://github.com/ionic-team/ionic-plugin-keyboard.git",
+  "_where": "/Users/kaushaljsathwara/Documents/Kaushal_Sathwara/TODAY TASK/VegasGames/VegasGamesMultiPlayers/Android",
+  "author": {
+    "name": "Ionic"
+  },
+  "bugs": {
+    "url": "https://github.com/driftyco/ionic-plugin-keyboard/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "ionic-plugin-keyboard",
+    "platforms": [
+      "android",
+      "ios",
+      "blackberry10",
+      "wp8",
+      "windows"
+    ]
+  },
+  "deprecated": false,
+  "description": "Ionic Keyboard Plugin",
+  "homepage": "https://github.com/driftyco/ionic-plugin-keyboard#readme",
+  "issue": "https://github.com/driftyco/ionic-plugin-keyboard/issues",
+  "keywords": [
+    "ionic",
+    "cordova",
+    "keyboard",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-blackberry10",
+    "cordova-wp8",
+    "cordova-windows"
+  ],
+  "license": "Apache 2.0",
+  "name": "ionic-plugin-keyboard",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/driftyco/ionic-plugin-keyboard.git"
+  },
+  "version": "2.2.1"
+}

@@ -1,0 +1,135 @@
+<div data-role="page" id="gift-shop" data-theme="a" data-title="VegasPoker" data-url="gift-shop" onclick="return false;" class="data-role-page">
+	<div id="gift-shop-virtual-gifts-content" class="page-content" data-role="content">
+
+		{{html _giftMenu}}
+
+		<div class="gift-background-title">
+			<div data-bind="css: {
+							'background-title': gifts.backgroundTag() == 6,
+							'gift-title': gifts.backgroundTag() == 2,
+							'dealery-title': gifts.backgroundTag() == 5
+							}
+							"></div>
+		</div>
+
+		<div class="gift-shop-row-gifts">
+			<div class='gift-shop-left-button-item row-left-block' data-bind="touch:  gifts.reducePage">
+				<div class="arrow-gift-scroll" data-bind="css: {'left-gift-scroll-active': gifts.hasReducePage(),'left-gift-scroll-unactive': !gifts.hasReducePage()}">
+					&nbsp;
+				</div>
+			</div>
+
+			<!-- remove it when create dynamic background or dealer avatar-->
+			<!-- ko if: gifts.giftsCurrentTagByKind.virtual() != 5 && gifts.giftsCurrentTagByKind.virtual() != 6 -->
+			<div class='gift-shop-gifts-list row-left-block gifts' data-bind="foreach: (gifts.giftsCurrentTagByKind.virtual()) ? gifts.giftsByKind.virtual[gifts.giftsCurrentTagByKind.virtual()].elements : gifts.giftsByKind.virtual.elements">
+				<div class="gift-shop-item row-left-block" data-bind="click: function (data, event) { $parent.gifts.toggleGift({gift: $data, indexInCollection: $index(), target: event.currentTarget}) }, css: {'selectedGift': $data.id == $parent.gifts.selectedGiftId()}">
+					<div class="gift-shop-text-item" >
+						<div class="gift-shop-item-table clickable">
+							<div class="gift-shop-item-cell title">
+								<span class="gift-shop-item-ceil-title" data-bind="text: name"></span><br />
+								<span class="gift-shop-item-ceil-price" data-bind="text: price"></span><span class="gift-shop-item-ceil-price"  data-bind="text: $data.moneyType == 80? ' Chips': ' Gold Coins'"> </span>
+							</div>
+						</div>
+					</div>
+					<div class="gift-shop-shadow-title">&nbsp;</div>
+					<div class="gift-shop-item-images" data-bind="style: { backgroundImage: 'url(' + $data.giftSrc + ')' }" >
+						<div class="gift-shop-item-table clickable">
+							<div class="gift-shop-item-cell" >
+
+								<div class="gift-image"></div>
+
+							</div>
+						</div>
+					</div>
+				<!--<div class="gift-shop-shadow">&nbsp;</div>-->
+				</div>
+			</div>
+			<!-- /ko -->
+
+
+			<div class="gift-shop-gifts-list row-left-block dealery" data-bind="visible: gifts.giftsCurrentTagByKind.virtual() == 5, foreach: gifts.giftsDealerElementsByType()">
+				<div class="gift-shop-item row-left-block" data-bind="click: function (data, event) { $parent.gifts.toggleGift({gift: $data, indexInCollection: $index(), target: event.currentTarget}) }, css: {'selectedGift': $data.id == $parent.gifts.selectedGiftId()}">
+					<div class="gift-shop-text-item" >
+						<div class="gift-shop-item-table clickable">
+							<div class="gift-shop-item-cell">
+								<span class="gift-shop-item-ceil-title" data-bind="text: name"></span><br />
+								<span class="gift-shop-item-ceil-price" data-bind="text: price"></span><span class="gift-shop-item-ceil-price"  data-bind="text: $data.moneyType == 80? ' Chips': ' Gold Coins'"> </span>
+							</div>
+						</div>
+					</div>
+					<div class="gift-shop-shadow-title">&nbsp;</div>
+					<div class="gift-shop-item-images" data-bind="style: { backgroundImage: 'url(' + ($data.preview !== null ? $data.preview.url : '') + ')' }" >
+						<div class="gift-shop-item-table clickable">
+							<div class="gift-shop-item-cell gift-image" >
+							</div>
+						</div>
+					</div>
+					<div class="gift-shop-shadow">&nbsp;</div>
+				</div>
+			</div>
+
+
+
+			<div class="gift-shop-gifts-list row-left-block background-gift" data-bind="visible: gifts.giftsCurrentTagByKind.virtual() == 6, foreach: gifts.giftsBackgroundElementsByType()">
+				<div class="gift-shop-item row-left-block" data-bind="click: function (data, event) { $parent.gifts.toggleGift({gift: $data, indexInCollection: $index(), target: event.currentTarget}) }, css: {'selectedGift': $data.id == $parent.gifts.selectedGiftId()}">
+					<div class="gift-shop-text-item" >
+						<div class="gift-shop-item-table clickable">
+							<div class="gift-shop-item-cell">
+								<span class="gift-shop-item-ceil-title" data-bind="text: name"></span><br />
+								<span class="gift-shop-item-ceil-price" data-bind="text: price"></span><span class="gift-shop-item-ceil-price"  data-bind="text: $data.moneyType == 80? ' Chips': ' Gold Coins'"> </span>
+							</div>
+						</div>
+					</div>
+					<div class="gift-shop-shadow-title">&nbsp;</div>
+					<div class="gift-shop-item-images" data-bind="style: { backgroundImage: 'url(' + ($data.preview !== null ? $data.preview.url : '') + ')' }">
+						<div class="gift-shop-item-table clickable">
+							<div class="gift-shop-item-cell gift-image">
+							</div>
+						</div>
+					</div>
+					<div class="gift-shop-shadow">&nbsp;</div>
+				</div>
+			</div>
+
+
+			<div class='gift-shop-right-button-item row-left-block scroll-load-more-button'>
+				<div class="arrow-gift-scroll" data-bind="css: {'right-gift-scroll-active': gifts.hasMorePage(),'right-gift-scroll-unactive': !gifts.hasMorePage()}">
+					&nbsp;
+				</div>
+			</div>
+
+		</div>
+
+		<div class='gift-shop-row-button'>
+			<div class='gift-table-cell-auto'>&nbsp;</div>
+			<!-- ko if: !gifts.selectedPlayerFromTable() -->
+			<div class='gift-for-self-button-block'>
+				<button data-role="none" class="green-button gift-for-self-button" data-bind="enable: gifts.selectedGiftId, touch: gifts.buyGift.bind(gifts, 'self')">
+					<div class="gift-for-self-button-text" data-bind="text: locale()._W3._a"></div>
+				</button>
+			</div>
+			<!-- /ko -->
+			<!-- ko if: gifts.selectedPlayerFromTable() -->
+			<div class='gift-for-self-button-block'>
+				<button data-role="none" class="green-button gift-for-self-button" data-bind="enable: gifts.selectedGiftId, touch: gifts.buyGift.bind(gifts, 'player')">
+					<div class="gift-for-self-button-text" data-bind="text: locale()._W3._a6"></div>
+				</button>
+			</div>
+			<!-- /ko -->
+			<!-- ko if: (gifts.selectedTableId() != gifts.NO_ACTIVE_TABLE_ID) && (tablesSnap.hasStandUpButton()) -->
+			<div class='gift-for-table-button-block'>
+				<button data-role="none" class="green-button gift-for-table-button" data-bind="enable: gifts.selectedGiftId, touch: gifts.buyGift.bind(gifts, 'opponents')">
+					<div class="gift-for-self-button-text" data-bind="text: locale()._a0"></div>
+				</button>
+			</div>
+			<!-- /ko -->
+			<div class='gift-table-cell-auto'>&nbsp;</div>
+		</div>
+
+
+
+	</div>
+	{{html _footer}}
+	{{html _leaderboard}}
+	{{html _blockad}}
+</div>

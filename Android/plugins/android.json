@@ -1,0 +1,61 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.enterra.android.apps.poker.client.vegas"
+    },
+    "cordova-plugin-appsflyer-sdk": {
+      "PACKAGE_NAME": "com.enterra.android.apps.poker.client.vegas"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.enterra.android.apps.poker.client.vegas"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.enterra.android.apps.poker.client.vegas"
+    },
+    "cordova-plugin-globalization": {
+      "PACKAGE_NAME": "com.enterra.android.apps.poker.client.vegas"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.enterra.android.apps.poker.client.vegas"
+    },
+    "cordova-plugin-media": {
+      "PACKAGE_NAME": "com.enterra.android.apps.poker.client.vegas"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.enterra.android.apps.poker.client.vegas"
+    },
+    "cc.fovea.cordova.purchase": {
+      "BILLING_KEY": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnQmFycnACyiGvx2JDeS0xiR0HeSNQZbdseQtp2IB2gu8I6dOmi7xIETMWof+p/yGNsxPRkUIijSamhTW/xiluz8QdrXFJ7ZC0tkhlx5j78usy+1L06ovL+G+YKa0drTVNlKQ7rcZBfPEJuENenziLjwELtkUMeYMjM4qAN1rPQ2dtFRjISUS9qJ08FIfc7/4wqA2asFkUl2pn7oO1oW8xDgEJLxaPkRzuRmHyp3PJG8H8Au3ij9i8pEK2AZZJj5Bh+3EFZah0RNUYdgK4P+xYVNAaLCJUD88icQ/9OExTlcp++xfVWT2OlqQwkNG1VTpigcdL952TWh8KRBTpNP9qQIDAQAB",
+      "PACKAGE_NAME": "com.enterra.android.apps.poker.client.vegas"
+    },
+    "cordova-plugin-keyboard": {
+      "PACKAGE_NAME": "com.enterra.android.apps.poker.client.vegas"
+    },
+    "cordova-plugin-native-keyboard": {
+      "LICENSE": "TRIAL",
+      "PACKAGE_NAME": "com.enterra.android.apps.poker.client.vegas"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "com.enterra.android.apps.poker.client.vegas"
+    },
+    "cordova-plugin-admobpro": {
+      "PLAY_SERVICES_VERSION": "16.0.0",
+      "PACKAGE_NAME": "com.enterra.android.apps.poker.client.vegas"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "com.enterra.android.apps.poker.client.vegas"
+    },
+    "cordova-plugin-extension": {
+      "PACKAGE_NAME": "com.enterra.android.apps.poker.client.vegas"
+    }
+  }
+}

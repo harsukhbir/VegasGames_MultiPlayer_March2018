@@ -1,0 +1,181 @@
+<div data-role="page" id="friends" data-theme="a" data-title="VegasPoker" data-url="friends" onclick="return false;" class="data-role-page">
+    <div data-role="content" id="friends-page-content" class="page-content">
+
+        <div class="menu-toolbar">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="title-page"></div>
+                <div class="go-back" data-bind="touch: menu.back">
+                    <div class="go-back-friends-text" data-bind="text: locale()._f1._n7"></div>
+                </div>
+            </div>
+        </div>
+
+        <div data-bind="visible: !friends.friendsList.hasElements()">
+            <div data-bind="text: locale()._W7"></div>
+        </div>
+
+        <div class="friends-page-content">
+            <div class="friends-list">
+                <div id="scroll-wrapper" class="friends-scroll-wrapper">
+                    <div id="scroll-wrapper-child" class="scroll-wrapper-child">
+                        <div class="t-table-friends t-table" data-bind="visible: friends.friendsList.hasElements()">
+                            <!-- ko foreach: friends.friendsList.elements -->
+                            <div class="t-table-row-friends t-table-row clickable" data-bind="css:  {'selected-friends' : $parent.friends.selectedFriendInfo() && $parent.friends.selectedFriendInfo().id == $data.id} , click: $parent.friends.getFriendInfo">
+                                <div class="t-table-friends-column1 t-table-column">
+                                    <div class="friends-avatar">
+                                        <div data-bind="style: { backgroundImage: 'url(' + avatarSrc + ')' }">&nbsp;</div>
+                                    </div>
+
+                                </div>
+                                <div class="t-table-friends-column2 t-table-column">
+                                    <div class="friend-nickname" data-bind="text: nick">
+                                        <!--Name-->
+                                    </div>
+                                    <div class="friend-status-image friend-status-offline" data-bind="css: {'friend-status-online': isOnline }"></div>
+                                    <div class="friend-status-text" data-bind="text: (isOnline? locale()._K5._V7: locale()._K5._j0)">
+                                        <!--Name-->
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <!-- /ko -->
+                            <div class="t-table-row-friends t-table-row clickable" data-bind="visible: friends.friendsList.hasMorePages, click: friends.friendsList.growPage.bind(friends.friendsList)">
+                                <div class="t-table-friends-column1 t-table-column"></div>
+                                <div class="t-table-friends-column2 t-table-column">
+                                    <div data-bind="text: locale()._z5._M6"></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="scroller-bar-wrapper">
+                        <div class="scroller-bar-scroller"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="friends-info">
+                <!-- ko if: friends.selectedFriendInfo() != null -->
+                <div class="friend-info-head-block">
+                    <div class="friend-info-avatar">
+                        <div class="profile-change-avatar-image-container friend-avatar-image-container">
+                            <div class="friends-avatar friends-frame-avatar">
+                                <div data-bind="style: { backgroundImage: 'url(' + friends.selectedFriendInfo().avatarSrc + ')' }">&nbsp;</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="friend-info-text">
+
+                        <div class="player-info-block-friends row-left-block friend-info-block-mini ">
+                            <div class="row-player-data background-player-data">
+                                <div class="label-player-data row-left-block">
+                                    <div data-bind="text: locale()._u2._h9"></div>
+                                </div>
+                                <div class="value-player-data row-right-block">
+                                    <div data-bind="text: friends.selectedFriendInfo().levelLabel">
+                                        <!-- level -->
+                                    </div>
+                                </div>
+                                <br class="clear">
+                            </div>
+                            <div class="row-player-data no-border-player-data">
+                                <div class="label-player-data row-left-block">
+                                    <div data-bind="text: locale()._u2._O5"></div>
+                                </div>
+                                <div class="value-player-data row-right-block">
+                                    <div data-bind="text: friends.selectedFriendInfo().cropHighestChipLevel">
+                                        <!-- highestChipLevel -->
+                                    </div>
+                                </div>
+                                <br class="clear">
+                            </div>
+                            <div class="row-player-data background-player-data">
+                                <div class="label-player-data row-left-block">
+                                    <div data-bind="text: locale()._u2._C3"></div>
+                                </div>
+                                <div class="value-player-data row-right-block">
+                                    <div data-bind="text: friends.selectedFriendInfo().cropFreeChips">
+                                        <!-- freeChips -->
+                                    </div>
+                                </div>
+                                <br class="clear">
+                            </div>
+                            <div class="row-player-data no-border-player-data">
+                                <div class="label-player-data row-left-block">
+                                    <div data-bind="text: locale()._u2._l"></div>
+                                </div>
+                                <div class="value-player-data row-right-block">
+                                    <div data-bind="text: friends.selectedFriendInfo().buddiesCount">
+                                        <!-- buddiesCount -->
+                                    </div>
+                                </div>
+                                <br class="clear">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="friend-info-body-block">
+                    <div class="player-info-block row-left-block friend-info-block ">
+                        <div class="row-player-data">
+                            <div class="title-player-data title-player-data-friend">
+                                <div data-bind="text: locale()._u2._o"></div>
+                            </div>
+                        </div>
+
+                        <div class="row-player-data background-player-data pink-player-data">
+                            <div class="label-player-data row-left-block">
+                                <div data-bind="text: locale()._w1._11"></div>
+                            </div>
+                            <div class="value-player-data row-right-block">
+                                <div data-bind="text: friends.selectedFriendInfo().registerDate"></div>
+                            </div>
+                            <br class="clear">
+                        </div>
+                        <div class="row-player-data no-border-player-data white-player-data">
+                            <div class="label-player-data row-left-block">
+                                <div data-bind="text: locale()._w1._Z7"></div>
+                            </div>
+                            <div class="value-player-data row-right-block">
+                                <div data-bind="text: friends.selectedFriendInfo().cropBiggestPotWon"></div>
+                            </div>
+                            <br class="clear">
+                        </div>
+
+                        <div class="row-player-data background-player-data pink-player-data">
+                            <div class="label-player-data row-left-block">
+                                <div data-bind="text: locale()._w1._h3"></div>
+                            </div>
+                            <div class="value-player-data row-right-block">
+                                <div class='profile-best-hand' data-bind="html: friends.selectedFriendInfo().bestHand"></div>
+                            </div>
+                            <br class="clear">
+                        </div>
+                        <div class="row-player-data no-border-player-data white-player-data">
+                            <div class="label-player-data row-left-block">
+                                <div data-bind="text: locale()._w1._k3"></div>
+                            </div>
+                            <div class="value-player-data row-right-block">
+                                <div data-bind="text: friends.selectedFriendInfo().handsWon"></div>
+                            </div>
+                            <br class="clear">
+                        </div>
+
+
+                        <div class="friends-button-row">
+                            <div class="friends-action-button remove-friend" data-bind="click: friends.removeFriend.bind(friends, friends.selectedFriendInfo())">
+                                <div class="friends-action-button-text" data-bind="text: locale()._K5._I"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- /ko -->
+            </div>
+        </div>
+
+    </div>
+    {{html _footer}} {{html _leaderboard}} {{html _blockad}}
+</div>

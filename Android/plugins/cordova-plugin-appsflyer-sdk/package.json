@@ -1,0 +1,121 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "cordova-plugin-appsflyer-sdk",
+        "scope": null,
+        "escapedName": "cordova-plugin-appsflyer-sdk",
+        "name": "cordova-plugin-appsflyer-sdk",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/kaushaljsathwara/Documents/Kaushal_Sathwara/TODAY TASK/VegasGames/VegasGamesMultiPlayers/Android/node_modules"
+    ]
+  ],
+  "_from": "cordova-plugin-appsflyer-sdk@latest",
+  "_id": "cordova-plugin-appsflyer-sdk@4.2.19",
+  "_inCache": true,
+  "_location": "/cordova-plugin-appsflyer-sdk",
+  "_nodeVersion": "7.2.1",
+  "_npmOperationalInternal": {
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/cordova-plugin-appsflyer-sdk-4.2.19.tgz_1494847090949_0.10228750435635448"
+  },
+  "_npmUser": {
+    "name": "af-fess",
+    "email": "maxim@appsflyer.com"
+  },
+  "_npmVersion": "3.10.10",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "cordova-plugin-appsflyer-sdk",
+    "scope": null,
+    "escapedName": "cordova-plugin-appsflyer-sdk",
+    "name": "cordova-plugin-appsflyer-sdk",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-appsflyer-sdk/-/cordova-plugin-appsflyer-sdk-4.2.19.tgz",
+  "_shasum": "8bf2969cf03724fab0dbd142b64b4d3690310f20",
+  "_shrinkwrap": null,
+  "_spec": "cordova-plugin-appsflyer-sdk",
+  "_where": "/Users/kaushaljsathwara/Documents/Kaushal_Sathwara/TODAY TASK/VegasGames/VegasGamesMultiPlayers/Android/node_modules",
+  "author": {
+    "name": "Appsflyer"
+  },
+  "bugs": {
+    "url": "https://github.com/AppsFlyerSDK/cordova-plugin-appsflyer-sdk/issues"
+  },
+  "cordova": {
+    "id": "cordova-plugin-appsflyer-sdk",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "dependencies": {},
+  "description": "Cordova AppsFlyer SDK Plugin",
+  "devDependencies": {
+    "jshint": "^2.6.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "8bf2969cf03724fab0dbd142b64b4d3690310f20",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-appsflyer-sdk/-/cordova-plugin-appsflyer-sdk-4.2.19.tgz"
+  },
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=4.3.0"
+    }
+  ],
+  "gitHead": "a48db8528a338f0d8c71946e7e82faf3076ccb79",
+  "homepage": "https://github.com/AppsFlyerSDK/cordova-plugin-appsflyer-sdk#readme",
+  "keywords": [
+    "cordova",
+    "appsflyer",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/AppsFlyerSDK/nativescript-plugin-appsflyer-sdk/blob/master/LICENSE"
+  },
+  "maintainers": [
+    {
+      "name": "af-fess",
+      "email": "maxim@appsflyer.com"
+    }
+  ],
+  "name": "cordova-plugin-appsflyer-sdk",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AppsFlyerSDK/cordova-plugin-appsflyer-sdk.git"
+  },
+  "scripts": {
+    "demo_a.ba": "cd examples/demoA; ionic build android",
+    "demo_a.bi": "cd examples/demoA; ionic build ios",
+    "demo_a.ra": "cd examples/demoA; ionic run android",
+    "demo_a.ri": "cd examples/demoA; ionic run ios",
+    "demo_c.ba": "cd examples/demoC; cordova build android",
+    "demo_c.bi": "cd examples/demoC; cordova build ios",
+    "demo_c.ra": "cd examples/demoC; cordova run android",
+    "demo_c.ri": "cd examples/demoC; cordova run ios",
+    "jshint": "node node_modules/jshint/bin/jshint www && node node_modules/jshint/bin/jshint src && node node_modules/jshint/bin/jshint tests",
+    "preparedemo_a": "cd examples/demoA; cordova plugin rm cordova-plugin-appsflyer-sdk --save; cordova plugin add ../.. --save; cordova plugin rm cordova-plugin-appsflyer-sdk-tests --save; cordova plugin add ../../tests/",
+    "preparedemo_c": "cd examples/demoC; cordova plugin rm cordova-plugin-appsflyer-sdk --save; cordova plugin add ../.. --save; cordova plugin rm phonegap-plugin-push --save; cordova plugin add phonegap-plugin-push@1.7.0 --variable SENDER_ID=12345 --save; cordova plugin rm cordova-plugin-console --save; cordova plugin add cordova-plugin-console --save; cordova platform rm android; cordova platform add android; cordova platform rm ios; cordova platform add ios",
+    "setup_a": "cd examples/demoA; npm install; cd ../..; npm run preparedemo_a;",
+    "setup_c": "cd examples/demoC; npm install; cd ../..; npm run preparedemo_c;",
+    "test": "npm run jshint"
+  },
+  "version": "4.2.19"
+}

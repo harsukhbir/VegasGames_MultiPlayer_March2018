@@ -1,0 +1,31 @@
+<div data-role="page" id="redeem-code" data-theme="a" data-title="VegasPoker" data-url="redeem-code" class="data-role-page">
+	<div id="redeem-code-page-content" data-role="content" class="page-content">
+		<div class="page-header">
+			<button class="lobby-back-button" data-role="none" type="button" data-bind="touch: menu.openPage.bind($data, 'home'), text: locale()._f1._51">
+			</button>
+			<div class="lobby-header-title">
+				<div class="lobby-header-title-text" data-bind="text: locale()._R._k8"></div>
+			</div>
+		</div>
+
+		<div class="input-dialog">
+			<div class="input-dialog-title">
+				<div class="input-dialog-title-text" data-bind="text: locale()._R._U5">
+				</div>
+			</div>
+			<form data-bind="jqmsubmit: redeemCode.applyPromoCode">
+				<div class="input-dialog-input">
+					<input type="text" class="input-dialog-input-text" data-role="none" data-bind="value: redeemCode.promoCode" required>
+				</div>
+				<div class="input-dialog-buttons">
+					<button class="ivey-button input-dialog-apply-button" data-role="none" data-bind="text: locale()._R._d2"></button>
+				</div>
+			</form>
+		</div>
+
+
+	</div>
+	{{html _footer}}
+	{{html _leaderboard}}
+	{{html _blockad}}
+</div>

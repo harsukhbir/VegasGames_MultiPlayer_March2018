@@ -1,0 +1,19 @@
+<div id="game-type-loader" class="game-type-loader">
+		<div class="loader-alternative-logo-block"></div>
+		<div class="loader-girl-block"></div>
+		<div class="loader-logo-block"></div>
+		<div class="loader-type-block"></div>
+		<div class="loader-loader-block">
+			<div id="progress-bg" ></div>
+			<div id="progress-bar" data-bind="foreach : lobby.progressElements" >
+				<div class="progress-item" ></div>
+				<!--ko if: $index() + 1 < $parent.lobby.numSteps-->
+				<div class="progress-item-divider"></div>
+				<!-- /ko -->
+			</div>
+		</div>
+		<!--Load fonts-->
+		<div class="loader-empty-block">
+			&nbsp;
+		</div>
+</div>

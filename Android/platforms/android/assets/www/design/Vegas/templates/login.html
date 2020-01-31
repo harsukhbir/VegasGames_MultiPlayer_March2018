@@ -1,0 +1,78 @@
+<div data-role="page" id="login" data-theme="a" data-title="VegasPoker" data-url="login" class="data-role-page">
+		<div id="login-page-content" class="page-content" data-role="content">
+	
+			{{html _loginMenu}}
+	
+			<div class="scroll-wrapper-adaptive scroll-wrapper-login">
+				<div class='block-all-fild'>
+	
+					<form id="form-sign-in" data-bind="submit: account.login.bind($data.account), disable: account.isLogining">
+						<div class="form-block">
+							<div class="white-form login-white-form">
+								<div class="row-form login-row-form">
+									<div class="input-row-form sign-up-input-row-form">
+										<div data-bind="text: locale()._P2._E" class="login-form-label"></div>
+										<input type="text" class="input-white required login-form-input" name="name" id="login-name" required pattern="^[\wА-Яа-я\.\-\'\`\s\,\(\)\+]{4,16}$" value="" class="input-white required" />
+									</div>
+								</div>
+								<div class="row-form login-row-form">
+									<div class="input-row-form sign-up-input-row-form">
+										<div data-bind="text: locale()._P2._B8" class="login-form-label"></div>
+										<input class="input-white required login-form-input" type="password" name="password" id="login-password" required pattern="^[^\s]{5,20}$" value="" class="input-white required"  />
+									</div>
+								</div>
+							</div>
+						</div>
+						<br class='clear'>
+						<div id="remember-me-block"></div>
+	
+						<div class='button-and-messages'>
+	
+							<div class='button-block-signin'>
+								<button id="sign-in-button" data-bind="text: locale()._P2.__1" type="submit" class="" data-role="none">
+									<!--Sign in-->
+								</button>
+							</div>
+						</div>
+						<br class='clear'>
+					</form>
+					<div class='messages-block'>
+						<div id="login-message-error" class="error-message">&nbsp;</div>
+						<div id="login-message" class="ok-message"></div>
+					</div>
+					<div class="login-right-block">
+						<div id="facebook-button-login" class="login-facebook-container" data-bind="click: menu.loginToFacebook">
+							<div class="login-facebook-sigin" data-bind="text :locale()._P2._c7"></div>
+						</div>
+						<div id="button-forgot-password">
+							<div data-bind="text: locale()._P2.__5" id="forgot-password" class="cl password"></div>
+						</div>
+						<div id="need-account-container" data-bind="click: menu.openPage.bind($data, 'registration')">
+							<div data-bind="text: locale()._P2._m5" id="need-account" class="cl password"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+			<div class="confirm-popup-back" data-bind="visible: account.isLogining">
+				<div class="popup_background"></div>
+				<div class="info-form-popup-back">
+					<table rows="1" cols="1" width="100%" height="100%">
+						<tr>
+							<td align="center" valign="center">
+								<table class="loading-state">
+									<tr data-bind="foreach: account.loginigIndicator.elements">
+										<td data-bind="css: {full: $index() <= $parent.account.loginigIndicator.state()}"></td>
+									</tr>
+								</table>
+								<div data-bind="text: account.loginigIndicator.status"></div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		{{html _loginFooter}}
+		{{html _blockad}}
+	</div>
+	

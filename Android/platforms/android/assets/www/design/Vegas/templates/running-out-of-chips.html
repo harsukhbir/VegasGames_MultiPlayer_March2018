@@ -1,0 +1,34 @@
+<div id="running-out-of-chips" class="external-dialog">
+	<div class="external-dialog-popup">
+		<div class="external-dialog-header-close-button">
+			<div class="external-dialog-close-image" data-bind="touch: inAppPayment.cancelRunningOutOfChips"></div>
+		</div>
+		<div class="running-out-of-chips-text" data-bind="text: locale()._02._a9"></div>
+		<div class="running-out-of-chips-text" data-bind="text: locale()._02._M"></div>
+		<div class="running-out-buttons-container">
+			<div class="running-out-buttons-buy-block">
+				<div class="running-out-button-buy">
+					<!-- ko if: inAppPayment.twoSmallestPlayMoneyPackages().length > 0 -->
+					<div class="buy-chips" data-bind="touch: inAppPayment.selectPaymentItem.bind(inAppPayment, inAppPayment.twoSmallestPlayMoneyPackages()[0])">
+						<div class="buy-chips-text ellipsis-text"><span data-bind="text: locale()._02._08"></span> <span data-bind="text: inAppPayment.twoSmallestPlayMoneyPackages()[0].amount"></span> <span data-bind="text: locale()._02._28"></span></div>
+					</div>
+					<div class="buy-chips-cost" data-bind="text: inAppPayment.getPackagePrice(inAppPayment.twoSmallestPlayMoneyPackages()[0])"><!--$Y1--></div>
+					<!-- /ko -->
+				</div>
+				<div class="running-out-button-buy">
+					<!-- ko if: inAppPayment.twoSmallestPlayMoneyPackages().length > 1 -->
+					<div class="buy-chips" data-bind="touch: inAppPayment.selectPaymentItem.bind(inAppPayment, inAppPayment.twoSmallestPlayMoneyPackages()[1])">
+						<div class="buy-chips-text ellipsis-text"><span data-bind="text: locale()._02._08"></span> <span data-bind="text: inAppPayment.twoSmallestPlayMoneyPackages()[0].amount"></span> <span data-bind="text: locale()._02._28"></span></div>
+					</div>
+					<div class="buy-chips-cost" data-bind="text: inAppPayment.getPackagePrice(inAppPayment.twoSmallestPlayMoneyPackages()[1])"><!--$Y2--></div>
+					<!-- /ko -->
+				</div>
+			</div>
+			<div class="running-out-buttons-packages-block">
+				<div class="buy-chips">
+					<div class="buy-chips-text ellipsis-text" data-bind="text: locale()._02._x0, touch: inAppPayment.openBuyChips.bind($data.inAppPayment, false)"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
