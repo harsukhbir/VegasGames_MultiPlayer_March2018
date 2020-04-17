@@ -172,8 +172,8 @@ android {
         if (cdvMinSdkVersion != null) {
             minSdkVersion cdvMinSdkVersion
         }
-        versionCode 10030
-        versionName '1.1.30'
+        versionCode 10031
+        versionName '1.1.31'
         minSdkVersion 16
         targetSdkVersion 28
     }

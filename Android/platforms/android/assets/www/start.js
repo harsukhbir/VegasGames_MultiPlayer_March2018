@@ -565,8 +565,7 @@ _Tf._xp.prototype = {
     this.pagesEventsMap[b]._am()
   },
   onEventPageShow: function (a, b, c) {
-    c = c || !1;
-    this.leavePermanentPage(b);
+    c = c || !1;this.leavePermanentPage(b);
     this.leavePreviousPage();
     this.pagesEventsMap[b]._am();
     this.pagesEventsMap[b]._t6();

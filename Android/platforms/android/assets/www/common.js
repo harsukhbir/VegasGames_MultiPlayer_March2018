@@ -2078,23 +2078,24 @@ _me.tablesSnap = new function (a) {
     }
   }
 }(_me);
-_me.account = new function (a, b) {
+_me.account = new function (a, b) { console.log('2081');
   this.isLogining = ko.observable(!1);
   this.loginigIndicator = new a(b.locale()._A8._20);
-  this.onSigningInStatus = function (a) {
+  this.onSigningInStatus = function (a) { console.log('2084'); console.log(a);
     this.loginigIndicator.status(b.locale()._A8._20);
     this.loginigIndicator._Gh(a)
   };
   _Mf._ks.addListener(_Ag._vk, this.onSigningInStatus, this);
   this.isRegistering = ko.observable(!1);
   this.isLogined = ko.observable(!1);
-  this.canSocialLogin = function () {
+  this.canSocialLogin = function () {  console.log('2091')
     return "undefined" != typeof _Xl._yn
   };
-  this.login = function () {
+  this.login = function () { console.log('2094');
     this.isLogining() || (this.isLogining(!0), _Mf._L2._k8())
   };
-  this.start = function () {
+  console.log('this.start'); 
+  this.start = function () { console.log('2097');
     this.isLogined() ? b.lobbyTablesFilters.playNow() : b.menu.openPage("login")
   };
   this.register = function () {
@@ -2151,6 +2152,7 @@ _me.options = new function (a) {
     _Mf._Md.closeExternalDialog(_Tf._0l._N1._ff.OPTIONS_SETTINGS)
   }.bind(this);
   this.openPage = function (b) {
+    console.log('2155');
     this.hideOptionsDialog();
     a.menu.openPage(b)
   }.bind(this);
@@ -3521,7 +3523,7 @@ _Tf._0r._Gs.GoToTable.prototype = {
 _Tf._0r._Gs.LobbyState = function () {
   this.srcMsgId = 0;
   this.softPaused = this.chatDisabled = !1;
-  this.jackpot = this.activeTournaments = this.activeTables = this.activePlayers = this.loggedInSessions = this.sessions = this.upTime = 0;
+  this.jackpot = this.activeTournaments = this.activeTables = this.activePlayers = this.loggedInSessions = this.sessions = this.upTime = 0; console.log('3524');console.log(this.sessions);
   this.playingPlayersEffective = this.sessionsEffective = this.tablesEffective = this.monteCarloBoardJackpot = this.badBeatJackpot = this.omahaJackpot = this["omaha-jackpot"] = 0
 };
 _Tf._0r._Gs.LobbyState.prototype = {
@@ -4387,7 +4389,7 @@ _Tf._Ek._2s._bf._je.prototype = {
     $.mobile.showPageLoadingMsg()
   },
   prepareToLogin: function () {
-    _me.account.isLogining(!0);
+    _me.account.isLogining(!0); console.log('4391');
     var a = _Tf._N1,
       b = _Tf._0l._N1;
     a._Es(b._y1);
@@ -8029,7 +8031,7 @@ _Tf._U6._je.prototype = {
   _3a: function () {
     return this.auth
   },
-  setUser: function (a) {
+  setUser: function (a) { console.log('8032');
     this.login = a.login;
     this.password = a.password;
     this.provider = a.provider
@@ -8222,9 +8224,10 @@ _Tf._a._je.prototype = {
     }) : (this._V2(40), this._mj(), _Mf._Up._z8())) : (this.view._b2(a.desc),
       this.model._T0(""))
   },
-  reloginAction: function () {
+  reloginAction: function () { console.log('8225');
     this.model.needRelogin = !1;
     var a = this.model.provider;
+    console.log('line 8228 :'+a);
     "facebook" == a ? _Mf._ks.emitAsync(_Xl._Af._dc._Ag.FACEBOOK_LOGIN_ACTION, [a]) : "google" == a ? _Mf._ks.emitAsync(_Xl._Ma._dc._Ag.GOOGLE_LOGIN_ACTION, [a]) : this._k8({
       login: this.model.login,
       password: this.model.password
@@ -19348,7 +19351,7 @@ _Xl._br._a._U0.prototype = {
     this.view.draw(this.model._o())
   },
   _C6: function (a) {
-    //   console.log("facebook login profile (a) ====> " + JSON.stringify(a)); // when login with facebook click on profile at that time #undefined
+      console.log("facebook login profile (a) ====> " + JSON.stringify(a)); // when login with facebook click on profile at that time #undefined
     _Mf._L2._oa() || ((a && a != this.model._us() || this.model._us() != _Mf._L2._d1()) && this.model.clear(), a = a || _Mf._L2._d1(), _Xl._br._hj._d.send(_Xl._br._0r._Tr.PUBLIC_PROFILE_INFO, {
       data: "[" + a + "]"
     }))
@@ -19392,7 +19395,7 @@ _me.publicProfile = new function (a) {
   this.details.subscribe(function (a) {
     // alert(JSON.stringify("Two "+a.handsWon));
     // alert(JSON.stringify("tournamentsWon "+a.tournamentsWon));
-    // console.log("Login Player Name "+ JSON.stringify(a));
+     console.log("Login Player Name11 "+ JSON.stringify(a));
     localStorage.setItem("loginUserName", a.name);
 
     a ? (this.details().id != a.id && this.avatarSrc(_Tf._0l._A._Nc._0q), this.avatarSrc(a.avatar.normal), this.balance(parseInt(a.balance) || 0), this.level(a.level + "-" + a.levelName), this.buddiesCount(parseInt(a.buddiesCount) || 0), this.network(a.network), this.name(a.name), this.registerDate(_Tf._Ek._29._97(a.registerDate, !1, !0)), this.biggestPotWon(_Tf._Ek._29._ca(parseInt(a.biggestPotWon),
@@ -24416,7 +24419,10 @@ _Xl._Af._dc._Ag = {
 };
 _Xl._Af._a._Xa = function () { };
 _Xl._Af._a._Xa.prototype = {
-  _e1: function (a) {
+  _e1: function (a) { console.log('24420');
+
+    localStorage.setItem('facebook-response',JSON.stringify(a));
+
     _Xl._yn && a && a.authResponse && _Mf._ks.emit(_Xl._yn._dc._Ag.SEND_REQUEST_TO_LOGIN, [{
       accessToken: a.authResponse.accessToken,
       userID: a.authResponse.userID
@@ -24445,7 +24451,7 @@ _Xl._Af._Hc._0h.prototype = {
       afterInitCallback: this._Cg.bind(this)
     })
   },
-  _mj: function () {
+  _mj: function () { console.log('24449');
     this._s3();
     FacebookWrapper.login(this._c3.bind(this), this._z5.bind(this))
   },
@@ -24505,14 +24511,14 @@ _Xl._Af._Hc._0h.prototype = {
   _Hs: function (a) {
     var b = this;
     this.init();
-    $(a).live("click", function () {
+    $(a).live("click", function () { console.log('24500');
       FacebookWrapper.isInited && (_Mf._ks.emitAsync(_Xl._Af._dc._Ag.FACEBOOK_LOGIN, []), b._mj())
     })
   },
   _Uo: function (a) {
     return a
   },
-  _c3: function () {
+  _c3: function () { console.log('24516');
     this.isConnected = !0;
     response = this._Uo(FacebookWrapper.loginResponse);
     _Mf._ks.emitAsync(_Xl._Af._dc._Ag.FACEBOOK_ON_LOGIN, [response])
@@ -24538,9 +24544,9 @@ _Xl._Af._Hc._0h.prototype = {
     _Mf._ks.emitAsync(_Xl._Af._dc._Ag.FACEBOOK_AFTER_INIT, a)
   }
 };
-_Xl._Af._Hc._dj = function (a, b) {
+_Xl._Af._Hc._dj = function (a, b) { console.log('24542');
   _Xl._Af._Hc._dj.superclass.apply(this, arguments);
-  _Xl.CordovaOAuth && (_Mf._ks.addListener(_Xl.CordovaOAuth._dc._Ag.CONFIGURE_OAUTH, function (a) {
+  _Xl.CordovaOAuth && (_Mf._ks.addListener(_Xl.CordovaOAuth._dc._Ag.CONFIGURE_OAUTH, function (a) { console.log(a);
     if (a) a.facebook = _Xl._Af._0l.jsoConfig
   }, null), _Mf._ks.addListener(_Xl.CordovaOAuth._dc._Ag.CLEAR_TOKENS, function (a, b) {
     "facebook" == a && this.logout(b)
@@ -24623,11 +24629,11 @@ _Xl._Af._Hc._dj.prototype._Hs = function () {
 _Xl._Af._Hc._dj.prototype.bind = function (a) {
   var b = this;
   this._Hs();
-  $(a).live("click", function () {
+  $(a).live("click", function () { console.log('24626');
     b.isInited && (_Mf._ks.emitAsync(_Xl._Af._dc._Ag.FACEBOOK_LOGIN, []), b._mj())
   })
 };
-_Xl._Af._Hc._dj.prototype._mj = function () {
+_Xl._Af._Hc._dj.prototype._mj = function () { console.log('24631');
   this._s3();
   var a = this.perms.value ? this.perms.value.split(",") : [];
   if (_Xl.CordovaOAuth) {
@@ -24635,7 +24641,7 @@ _Xl._Af._Hc._dj.prototype._mj = function () {
     _Xl.CordovaOAuth._hj.JSOController.authorizeAction("facebook", b, a, this._c3.bind(this), this._b2.bind(this))
   }
 };
-_Xl._Af._Hc._dj.prototype.registrationAction = function () {
+_Xl._Af._Hc._dj.prototype.registrationAction = function () { console.log('24639');
   var a = _Xl._Af._0l,
     b = this.perms.value ? this.perms.value.split(",") : [],
     c = this.getUrlAction("me", !0);
@@ -24652,11 +24658,11 @@ _Xl._Af._Hc._dj.prototype.registrationAction = function () {
     })
   }, "get")
 };
-_Xl._Af._Hc._dj.prototype._c3 = function (a) {
+_Xl._Af._Hc._dj.prototype._c3 = function (a) { console.log(' login 24656');
   a = this._Uo(a);
   _Mf._ks.emitAsync(_Xl._Af._dc._Ag.FACEBOOK_ON_LOGIN, [a])
 };
-_Xl._Af._Hc._dj.prototype.logout = function (a) {
+_Xl._Af._Hc._dj.prototype.logout = function (a) {  console.log(' logout 24656');
   if (_Xl.CordovaOAuth) {
     var b = this.getUrlAction("logout.php");
     _Xl.CordovaOAuth._hj.JSOController.showAndCloseDialogAction(b, {
@@ -24672,7 +24678,7 @@ _Xl._Af._Hc._dj.prototype._Uo = function (a) {
   };
   return a
 };
-_Xl._Af._Hc._dj.prototype.getUrlAction = function (a, b) {
+_Xl._Af._Hc._dj.prototype.getUrlAction = function (a, b) { console.log('24676');
   var c = "",
     d = "https://www.facebook.com/";
   b && (d = "https://graph.facebook.com/", c = this.config.version + "/");
@@ -24689,7 +24695,7 @@ _Xl._Af._co.prototype = {
     this.initFacebookService();
     this._f = new Sandbox._E9._Y3._Xa
   },
-  initFacebookService: function () {
+  initFacebookService: function () { console.log('24692');
     _Mf._ks.addListener("login-on-create", function () {
       _Tf._N1._c6(_Xl._Af._0l._N1.SOCIAL_LOGIN_BUTTONS, _h8._wc._an.FACEBOOK_BUTTON_LOGIN, !0)
     }, null);
@@ -24716,7 +24722,7 @@ _Xl._Af._co.prototype = {
     a.loginDelay = _Xl._Af._0l.loginDelay;
     this._0h = _Tf._Hc._Og._2d() ? new _Xl._Af._Hc._dj(a, b) : new _Xl._Af._Hc._0h(a, b)
   },
-  subscribeToEvents: function () {
+  subscribeToEvents: function () { console.log('24720');
     _Mf._ks.addListener(_Xl._Af._dc._Ag.FACEBOOK_ON_LOGIN,
 
       function (a) {
@@ -24728,7 +24734,7 @@ _Xl._Af._co.prototype = {
     _Mf._ks.addListener(_Xl._yn._dc._Ag.CURRENT_CLIENT_INVITE, function (a, b, c) {
       "facebook" == a && this._0h.invite(b || _Xl._Af._0l.appInvitation, null, c)
     }, this);
-    _Mf._ks.addListener(_Xl._Af._dc._Ag.FACEBOOK_LOGIN_ACTION, function (a) {
+    _Mf._ks.addListener(_Xl._Af._dc._Ag.FACEBOOK_LOGIN_ACTION, function (a) { console.log('24732');
       "facebook" === a && this._0h._mj()
     }, this);
     _Mf._ks.addListener(_Xl._yn._dc._Ag.CURRENT_CLIENT_LIKE, function (a) {
@@ -24918,14 +24924,26 @@ _Xl.RememberMe._co.prototype = {
     }, this);
     _Mf._ks.addListener("login-on-create", function () {
       _Tf._N1._c6(_Tf._0l._N1._R4, _h8._wc._an.REMEMBER_ME_CHECKBOX);
-      this.autoLoginAction()
+      var provider = localStorage.getItem('provider')
+      if(provider == 'facebook'){
+        var a = JSON.parse(localStorage.getItem('facebook-response'));
+        if(a){
+          
+          _Mf._ks.emit(_Xl._yn._dc._Ag.SEND_REQUEST_TO_LOGIN, [{
+            accessToken: a.authResponse.accessToken,
+            userID: a.authResponse.userID
+          }, "facebook"])
+        }
+      }else{
+        this.autoLoginAction()
+      }
     }, this);
     _Mf._ks.addListener("login-on-show", function () {
       $(_Xl.RememberMe._0l._N1.REMEMBER_ME_CHECKBOX).bind(EventType._qc, this._g7);
       this.onChange()
     },
       this);
-    _Xl._Af && _Mf._ks.addListener(_Xl._Af._dc._Ag.FACEBOOK_AFTER_INIT, function (a) {
+    _Xl._Af && _Mf._ks.addListener(_Xl._Af._dc._Ag.FACEBOOK_AFTER_INIT, function (a) { console.log('24929');
       this.autoFacebookLoginAction(a)
     }, this);
     _Xl._Ma && _Mf._ks.addListener(_Xl._Ma._dc._Ag.GOOGLE_AFTER_INIT, function (a) {
@@ -24966,7 +24984,7 @@ _Xl.RememberMe._co.prototype = {
     !_Tf._Hc._Og.isWebApplication("facebook") && !_Tf._Hc._Og.isWebApplication("google") && this.getKnownUserAction() && !_Mf._20._W6.isDisconnected() && _Mf._L2._k8(this.getKnownUserAction())
   },
   autoFacebookLoginAction: function (a) {
-    console.log('check5')
+    console.log('check59');
     console.log(a)
     if (!_Mf._20._W6.isDisconnected() && _Xl._Af && "function" === typeof a) {
       var b = localStorage.getItem("provider");
